@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<p>Hello World from report</p>
 </body>
 </html>

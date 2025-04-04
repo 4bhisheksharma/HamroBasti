@@ -26,7 +26,5 @@
   </dependencies>
 
 
-  <build>
-    <finalName>HamroBasti</finalName>
-  </build>
+
 </project>

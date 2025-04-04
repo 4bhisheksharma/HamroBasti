@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
-<%@include file="/widgets/navbar.jsp" %>
-
+<nav>
+    <%@include file="/widgets/navbar.jsp" %>
+</nav>
 <main>
     <!-- Hero Section -->
     <section class="hero">
@@ -17,7 +18,7 @@
                 <div class="hero-content">
                     <h1>Help Keep Your <span class="highlight">Community</span> Safe and Clean</h1>
                     <p>Report issues and track solutions through the Hamro-Basti platform</p>
-                    <a href="/view/report.jsp" class="btn">Report an Issue</a>
+                    <a href="${pageContext.request.contextPath}/view/report.jsp" class="btn">Report an Issue</a>
                 </div>
                 <div class="hero-image">
                     <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="Community illustration">
@@ -33,7 +34,7 @@
             <div class="feature-cards">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/report-icon.png" alt="Report icon">
+<%--                        <img src="${pageContext.request.contextPath}/assets/images/report-icon.png" alt="Report icon">--%>
                     </div>
                     <h3>Local Issue Reporting</h3>
                     <p>Report hyper-specific issues like vandalism, stray animals, garbage, broken streetlights, and damaged roads</p>
@@ -41,7 +42,7 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/issue-icon.png" alt="Issue icon">
+<%--                        <img src="${pageContext.request.contextPath}/assets/images/issue-icon.png" alt="Issue icon">--%>
                     </div>
                     <h3>Local Issue Reporting</h3>
                     <p>Report hyper-specific issues like vandalism, stray animals, garbage, broken streetlights, and damaged roads</p>
@@ -49,7 +50,7 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/progress-icon.png" alt="Progress icon">
+<%--                        <img src="${pageContext.request.contextPath}/assets/images/progress-icon.png" alt="Progress icon">--%>
                     </div>
                     <h3>Progress Updates</h3>
                     <p>Track report status and receive notifications when reported authorities update progress and resolve issues</p>
@@ -64,8 +65,8 @@
             <h2>Join Our <span class="highlight">Community</span></h2>
             <p>Together through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
             <div class="cta-buttons">
-                <a href="signup.jsp" class="btn">Register Now</a>
-                <a href="about.jsp" class="btn-outline">Learn More</a>
+                <a href="${pageContext.request.contextPath}/view/signup.jsp" class="btn">Register Now</a>
+                <a href="${pageContext.request.contextPath}/view/about.jsp" class="btn-outline">Learn More</a>
             </div>
         </div>
     </section>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}../assets/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
     <title>Hamro-Basti</title>
 </head>
 <body>
@@ -18,10 +18,10 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="../index.jsp">Home</a></li>
-                <li><a href="../view/report.jsp">Report</a></li>
-                <li><a href="../view/about.jsp">AboutUs</a></li>
-                <li><a href="../view/contact.jsp">ContactUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/report.jsp">Report</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/about.jsp">AboutUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/contact.jsp">ContactUs</a></li>
 
             </ul>
         </div>
