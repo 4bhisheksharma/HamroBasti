@@ -34,7 +34,7 @@
             <div class="feature-cards">
                 <div class="feature-card">
                     <div class="feature-icon">
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/report-icon.png" alt="Report icon">--%>
+                        <img src="${pageContext.request.contextPath}/assets/icons/report_icon.png" alt="Report icon">
                     </div>
                     <h3>Local Issue Reporting</h3>
                     <p>Report hyper-specific issues like vandalism, stray animals, garbage, broken streetlights, and damaged roads</p>
@@ -42,15 +42,15 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/issue-icon.png" alt="Issue icon">--%>
+                        <img src="${pageContext.request.contextPath}/assets/icons/image_icon.png" alt="Image icon">
                     </div>
-                    <h3>Local Issue Reporting</h3>
-                    <p>Report hyper-specific issues like vandalism, stray animals, garbage, broken streetlights, and damaged roads</p>
+                    <h3>Image-Based Reporting</h3>
+                    <p>Report hyper-specific issues like stray animals, garbage, broken streetlights, and damaged roads with images</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/progress-icon.png" alt="Progress icon">--%>
+                        <img src="${pageContext.request.contextPath}/assets/icons/update_icon.png" alt="Update icon">
                     </div>
                     <h3>Progress Updates</h3>
                     <p>Track report status and receive notifications when reported authorities update progress and resolve issues</p>
@@ -105,7 +105,6 @@
         </div>
     </section>
 </main>
-
 <footer>
     <%@include file="/widgets/footer.jsp" %>
 </footer>

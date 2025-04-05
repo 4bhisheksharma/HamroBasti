@@ -29,11 +29,11 @@
         <div class="footer-section">
             <h3>Contact</h3>
             <p>info@hamro-basti.np</p>
-            <p>+977-01-5345789</p>
+            <p>+977-01-23456789</p>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2023 Hamro-Basti. All rights reserved.</p>
+        <p>&copy; 2025 Hamro-Basti. All rights reserved.</p>
     </div>
 </footer>
 </body>
