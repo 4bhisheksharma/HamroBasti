@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<p>Ganne ka juice 20 rs gilas!!</p>
+<p>Ganne ka juice, Bada gilas 20 rs!</p>
 </body>
 </html>
