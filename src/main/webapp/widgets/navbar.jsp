@@ -11,7 +11,7 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="index.jsp">Hamro-Basti</a>
+            <a href="index.jsp">हाम्रो-बस्ती</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">

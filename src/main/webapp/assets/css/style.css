@@ -114,6 +114,7 @@ img {
     background-color: #6a4de0;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(123, 92, 255, 0.3);
+    color: var(--light-text);
 }
 
 section {

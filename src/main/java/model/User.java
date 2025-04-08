@@ -13,35 +13,32 @@ public class User {
         this.id = id;
     }
 
-    //getter methods
-    public int getEmail() {
-        return email;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPassword() {
-        return password;
-    }
-
-    //setter methods
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public int getEmail() {
+        return email;
+    }
+
     public void setEmail(int email) {
         this.email = email;
+    }
+
+    public int getPassword() {
+        return password;
     }
 
     public void setPassword(int password) {
