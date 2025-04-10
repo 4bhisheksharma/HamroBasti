@@ -12,14 +12,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Hamro-Basti</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/auth.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}../assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}../assets/css/auth.css">
 </head>
 <body>
 <main>
     <div class="auth-container">
         <div class="auth-image">
-            <img src="${pageContext.request.contextPath}/assets/images/signup_image.png" alt="Sign up illustration">
+            <img src="${pageContext.request.contextPath}../assets/images/signup_image.png" alt="Sign up illustration">
         </div>
 
         <div class="auth-form-container">
