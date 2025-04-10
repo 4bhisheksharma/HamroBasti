@@ -13,7 +13,7 @@
   <!-- Serve static resources (CSS, images) -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>/assets/*</url-pattern>
+    <url-pattern>/WEB-INF/*</url-pattern>
   </servlet-mapping>
 
   <!-- Welcome page -->

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 4/4/2025
-  Time: 2:19 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -12,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Hamro-Basti</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}../assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}../assets/css/auth.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/auth.css">
 </head>
 <body>
 <main>
@@ -28,7 +21,7 @@
                 <p>Fill in your details to get started</p>
             </div>
 
-            <form id="signup-form" class="auth-form" action="signup-process.jsp" method="post">
+            <form action="${pageContext.request.contextPath}/register" method="post">
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" name="fullname" class="form-control" required>

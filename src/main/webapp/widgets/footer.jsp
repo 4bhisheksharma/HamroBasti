@@ -19,9 +19,9 @@
             <h3>Quick Links</h3>
             <ul>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/view/report.jsp">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/view/about.jsp">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/view/contact.jsp">ContactUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/report.jsp">Report</a></li>
+                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
 
             </ul>
         </div>
