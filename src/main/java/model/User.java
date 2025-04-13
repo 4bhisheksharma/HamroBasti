@@ -2,10 +2,14 @@ package model;
 
 public class User {
     private int id;
-    private int roleId;
+    private int roleId = 1;
     private String fullName;
     private String email;
     private String password;
+
+    public User() {
+
+    }
 
     public User(int id, int roleId, String fullName, String email, String password) {
         this.id = id;
@@ -14,16 +18,17 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
     public User(String fullName, String email, String password){
-        fullName = fullName;
-        email = email;
-        password = password;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
     }
 
     public User(String fullName, String email, String password, int role) {
-        fullName = fullName;
-        email = email;
-        password = password;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
         this.roleId = role;
     }
 
@@ -66,4 +71,25 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
+    public boolean isRegularUser() {
+        return roleId == 1;
+    }
+
+    public boolean isAdmin() {
+        return roleId == 2;
+    }
+
+    // Helper method to check if user has admin-level permissions
+    public boolean hasAdminPermissions() {
+        return roleId == 0 || roleId == 2; // Super admin or regular admin
+    }
+
+    // Helper method to check if user can upload images
+    public boolean canUploadImages() {
+        return roleId == 1 || roleId == 2; // Regular user or regular admin
+    }
+
 }

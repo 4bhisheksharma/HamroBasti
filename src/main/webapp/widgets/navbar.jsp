@@ -11,19 +11,20 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="index.jsp">हाम्रो-बस्ती</a>
+            <a href="#">हाम्रो-बस्ती</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
-                <li class="navbar-item"><a href="index.jsp">Home</a></li>
+                <li class="navbar-item"><a href="#">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/report.jsp">Report</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
             </ul>
         </div>
         <div class="navbar-auth">
-            <a href="${pageContext.request.contextPath}/WEB-INF/view/login.jsp" class="login-btn">Log In</a>
-            <a href="${pageContext.request.contextPath}/register" class="signup-btn">Sign Up</a>
+<%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
+<%--             here we will fetch the name of the user who is logged in--%>
+            <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>

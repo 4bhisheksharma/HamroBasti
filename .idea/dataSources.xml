@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hamro_basti_db@localhost" uuid="9cf63290-b9cc-4fb1-bd03-00d02f1f6cb7">
+    <data-source source="LOCAL" name="hamro_basti_db@localhost" uuid="e60025a8-0643-44fb-8006-d0d05a12cd62">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

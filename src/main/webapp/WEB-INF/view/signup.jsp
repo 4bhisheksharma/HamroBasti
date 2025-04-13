@@ -12,7 +12,7 @@
 <main>
     <div class="auth-container">
         <div class="auth-image">
-            <img src="${pageContext.request.contextPath}../assets/images/signup_image.png" alt="Sign up illustration">
+            <img src="${pageContext.request.contextPath}/assets/images/signup_image.png" alt="Sign up illustration">
         </div>
 
         <div class="auth-form-container">
@@ -62,23 +62,15 @@
                     <span>OR</span>
                 </div>
 
-<%--                <div class="social-login">--%>
-<%--                    <button type="button" class="social-btn google-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/google-icon.png" alt="Google">--%>
-<%--                        <span>Continue with Google</span>--%>
-<%--                    </button>--%>
-<%--                    <button type="button" class="social-btn facebook-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/facebook-icon.png" alt="Facebook">--%>
-<%--                        <span>Continue with Facebook</span>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
 
                 <div class="auth-footer">
-                    <p>Already have an account? <a href="login.jsp" class="highlight">Sign in</a></p>
+                    <p>Already have an account? <a href="${pageContext.request.contextPath}/login" class="highlight">Sign in</a></p>
                 </div>
             </form>
         </div>
+
     </div>
+
 </main>
 </body>
 </html>
