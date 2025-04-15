@@ -16,7 +16,7 @@
         <div class="navbar-menu">
             <ul class="navbar-items">
                 <li class="navbar-item"><a href="#">Home</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/report.jsp">Report</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
             </ul>
@@ -35,7 +35,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <ul class="mobile-menu-items">
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/report.jsp">Report</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/login.jsp">Log In</a></li>
