@@ -1,16 +1,32 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 4/15/2025
-  Time: 5:27 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Admin - Hamro-Basti</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
-    <p>hello world from admin dashboard!</p>
+<nav>
+    <%@include file="/widgets/admin/navbar.jsp" %>
+</nav>
+    <!-- Hero Section -->
+<%--TODO:--%>
+    <section class="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Aare ma<span class="highlight"> बलराम </span>admin bata, namaskaram!</h1>
+                    <p>Report issues and track solutions through the Hamro-Basti platform</p>
+                    <a href="${pageContext.request.contextPath}/report" class="btn">View more</a>
+                </div>
+                <div class="hero-image">
+                    <img src="${pageContext.request.contextPath}/assets/images/admin_dashboard_image.png" alt="admin image">
+                </div>
+            </div>
+        </div>
+    </section>
+<footer>
+    <%@include file="/widgets/admin/footer.jsp" %>
+</footer>
 </body>
 </html>

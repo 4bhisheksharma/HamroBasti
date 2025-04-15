@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamro-Basti</title>
+    <title>Admin - Hamro-Basti</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/navbar.css">
 </head>
 <body>
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="#">हाम्रो-बस्ती</a>
+            <a href="#">हाम्रो-बस्ती - Admin</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
@@ -23,8 +23,7 @@
         </div>
         <div class="navbar-auth">
 <%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
-<%--             TODO: here we will fetch the name of the user who is logged in--%>
-            <p>User_user</p>
+<%--             here we will fetch the name of the user who is logged in--%>
             <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">

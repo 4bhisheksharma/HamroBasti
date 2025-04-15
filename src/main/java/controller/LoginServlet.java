@@ -16,8 +16,9 @@ import services.AuthService;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/login.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override
@@ -51,7 +52,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else {
             // Login failed
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/login.jsp?error=true");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp?error=true");
             dispatcher.forward(request, response);
         }
     }
