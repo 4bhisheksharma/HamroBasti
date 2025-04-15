@@ -17,7 +17,9 @@
         <div class="reports-header">
             <div class="reports-title">
                 <h1>Reports</h1>
-                <p>View issues reported in the community</p>
+                <p>View issues reported in the community <br>
+                    <i>For now everything here is hard coded.</i>
+                </p>
             </div>
             <div class="reports-illustration">
                 <img src="${pageContext.request.contextPath}/assets/images/reports.png" alt="Reports illustration">
@@ -262,22 +264,11 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <a href="#" class="pagination-item disabled" aria-label="Previous page">&lt;</a>
-                <a href="#" class="pagination-item active" aria-current="page">1</a>
-                <a href="#" class="pagination-item">2</a>
-                <a href="#" class="pagination-item">3</a>
-                <a href="#" class="pagination-item">4</a>
-                <a href="#" class="pagination-item">5</a>
-                <a href="#" class="pagination-item" aria-label="Next page">&gt;</a>
-            </div>
         </div>
     </div>
 </main>
 <footer>
-<%--    <%@include file="/widgets/footer.jsp" %>--%>
+    <%@include file="/widgets/footer.jsp" %>
 </footer>
 </body>
 </html>

@@ -84,7 +84,7 @@ public class User {
 
     // Helper method to check if user has admin-level permissions
     public boolean hasAdminPermissions() {
-        return roleId == 0 || roleId == 2; // Super admin or regular admin
+        return roleId == 2; //regular admin
     }
 
     // Helper method to check if user can upload images

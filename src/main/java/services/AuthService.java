@@ -40,8 +40,13 @@ public class AuthService {
         if (user != null && PasswordHashUtil.verifyPassword(password, user.getPassword())) {
             return user;
         }
-
         return null;
+
+    }
+
+    public static boolean hasAdminAccess(User user) {
+        if (user == null) return false;
+        return user.hasAdminPermissions();
     }
 
 }

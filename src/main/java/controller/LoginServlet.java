@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
             String userType = "User";
             if (user.isAdmin()) userType = "Admin";
 
-
             if(user.isRegularUser()){
                 response.sendRedirect(request.getContextPath() + "/home");
             }
