@@ -18,7 +18,7 @@
                 <div class="hero-content">
                     <h1>Help Keep Your <span class="highlight">Community</span> Safe and Clean</h1>
                     <p>Report issues and track solutions through the Hamro-Basti platform</p>
-                    <a href="${pageContext.request.contextPath}WEB-INF/view/report.jsp" class="btn">Report an Issue</a>
+                    <a href="${pageContext.request.contextPath}/report" class="btn">Report an Issue</a>
                 </div>
                 <div class="hero-image">
                     <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="Community illustration">
