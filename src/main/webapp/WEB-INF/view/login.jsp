@@ -28,11 +28,11 @@
                 <p>Enter your credentials to access your account</p>
             </div>
 
-            <form id="login-form" class="auth-form" action="login-process.jsp" method="post">
+            <form id="login-form" class="auth-form" action="${pageContext.request.contextPath}/login" method="post">
                 <div class="form-group">
-                    <label for="username">Username or Email</label>
-                    <input type="text" id="username" name="username" class="form-control" required>
-                    <div class="error-message" id="username-error"></div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <div class="error-message" id="email-error"></div>
                 </div>
 
                 <div class="form-group">
@@ -72,7 +72,7 @@
 <%--                </div>--%>
 
                 <div class="auth-footer">
-                    <p>Don't have an account? <a href="signup.jsp" class="highlight">Sign up</a></p>
+                    <p>Don't have an account? <a href="${pageContext.request.contextPath}/register" class="highlight">Sign up</a></p>
                 </div>
             </form>
         </div>

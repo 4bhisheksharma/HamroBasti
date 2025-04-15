@@ -5,43 +5,10 @@
     <meta charset="UTF-8">
     <title>Hamro-Basti</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/navbar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 </head>
 <body>
-<nav class="navbar">
-    <div class="navbar-container">
-        <div class="navbar-logo">
-            <a href="index.jsp">हाम्रो-बस्ती</a>
-        </div>
-        <div class="navbar-menu">
-            <ul class="navbar-items">
-                <li class="navbar-item"><a href="index.jsp">Home</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
-            </ul>
-        </div>
-        <div class="navbar-auth">
-            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>
-            <a href="${pageContext.request.contextPath}/register" class="signup-btn">Sign Up</a>
-        </div>
-        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-        <ul class="mobile-menu-items">
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Report</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Log In</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Sign Up</a></li>
-        </ul>
-    </div>
+<nav>
+    <%@include file="/widgets/navbar.jsp" %>
 </nav>
 <main>
     <!-- Hero Section -->
@@ -51,7 +18,7 @@
                 <div class="hero-content">
                     <h1>Help Keep Your <span class="highlight">Community</span> Safe and Clean</h1>
                     <p>Report issues and track solutions through the Hamro-Basti platform</p>
-                    <a href="${pageContext.request.contextPath}/register" class="btn">Report an Issue</a>
+                    <a href="${pageContext.request.contextPath}WEB-INF/view/report.jsp" class="btn">Report an Issue</a>
                 </div>
                 <div class="hero-image">
                     <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="Community illustration">
@@ -98,8 +65,8 @@
             <h2>Join Our <span class="highlight">Community</span></h2>
             <p>Together through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
             <div class="cta-buttons">
-                <a href="${pageContext.request.contextPath}/register" class="btn">Register Now</a>
-                <a href="${pageContext.request.contextPath}/register" class="btn-outline">Learn More</a>
+                <a href="${pageContext.request.contextPath}/view/signup.jsp" class="btn">Register Now</a>
+                <a href="${pageContext.request.contextPath}/view/about.jsp" class="btn-outline">Learn More</a>
             </div>
         </div>
     </section>
@@ -138,35 +105,8 @@
         </div>
     </section>
 </main>
-
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Hamro-Basti</h3>
-            <p>Community-based platform reporting and resolving issues</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
-
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <p>info@hamro-basti.np</p>
-            <p>+977-01-23456789</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Hamro-Basti. All rights reserved.</p>
-        <p>V: 1.1</p>
-    </div>
+<footer>
+    <%@include file="/widgets/footer.jsp" %>
 </footer>
 </body>
 </html>

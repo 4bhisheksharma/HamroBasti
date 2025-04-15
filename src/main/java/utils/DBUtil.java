@@ -14,6 +14,8 @@ public class DBUtil {
         try(InputStream is = DBUtil.class.getClassLoader().getResourceAsStream("db.properties")) {
             Properties prop = new Properties();
             prop.load(is);
+            // debug
+            System.out.println(prop.getProperty("db.url"));
             Class.forName(prop.getProperty("db.driver"));
             url = prop.getProperty("db.url");
             user = prop.getProperty("db.username");
