@@ -35,13 +35,13 @@ CREATE TABLE report_status (
 CREATE TABLE reports (
                          report_id INT AUTO_INCREMENT PRIMARY KEY,
                          user_id INT NOT NULL,
-                         title VARCHAR(255) NOT NULL,
-                         description TEXT NOT NULL,
+                         title VARCHAR(50) NOT NULL,
+                         description VARCHAR(100) NOT NULL,
                          priority_id INT NOT NULL,
                          status_id INT NOT NULL DEFAULT 1,
                          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                         FOREIGN KEY (user_id) REFERENCES users(user_id),
+                         FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
                          FOREIGN KEY (priority_id) REFERENCES priorities(priority_id),
                          FOREIGN KEY (status_id) REFERENCES report_status(status_id)
 );
@@ -50,8 +50,9 @@ CREATE TABLE reports (
 CREATE TABLE report_images (
                                image_id INT AUTO_INCREMENT PRIMARY KEY,
                                report_id INT NOT NULL,
-                               file_path VARCHAR(255) NOT NULL,
-                               FOREIGN KEY (report_id) REFERENCES reports(report_id)
+                               image MEDIUMBLOB,
+                               created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                               FOREIGN KEY (report_id) REFERENCES reports(report_id) ON DELETE CASCADE
 );
 
 -- Insert initial data
@@ -66,6 +67,5 @@ INSERT INTO priorities (label) VALUES
 
 INSERT INTO report_status (label) VALUES
                                       ('Submitted'),
-                                      ('Verified'),
                                       ('In Progress'),
                                       ('Completed');
