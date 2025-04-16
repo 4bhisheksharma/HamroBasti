@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
-    <%@include file="/widgets/admin/navbar.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
 </nav>
     <!-- Hero Section -->
 <%--TODO:--%>
@@ -26,7 +26,7 @@
         </div>
     </section>
 <footer>
-    <%@include file="/widgets/admin/footer.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
 </footer>
 </body>
 </html>
