@@ -38,4 +38,7 @@ build/
 .DS_Store
 
 # resources
-src/main/java/resources/*
+/src/main/resources/db.properties
+
+# .idea
+/.idea

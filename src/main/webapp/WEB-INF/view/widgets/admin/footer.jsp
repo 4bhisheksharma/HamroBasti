@@ -11,7 +11,7 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
-            <h3>Hamro-Basti</h3>
+            <h3>Admin - Hamro-Basti</h3>
             <p>Community-based platform reporting and resolving issues</p>
         </div>
 
@@ -19,7 +19,7 @@
             <h3>Quick Links</h3>
             <ul>
                 <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/report.jsp">Report</a></li>
+                <li><a href="${pageContext.request.contextPath}/report">Report</a></li>
                 <li><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
                 <li><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
 
@@ -34,7 +34,7 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 Hamro-Basti. All rights reserved.</p>
-        <p>V: 1.1</p>
+        <p>V: 1.1 (admin)</p>
     </div>
 </footer>
 </body>

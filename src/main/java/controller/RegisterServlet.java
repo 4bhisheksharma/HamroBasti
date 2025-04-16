@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/signup.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -28,16 +28,16 @@ public class RegisterServlet extends HttpServlet {
 
             if (userId > 0) {
                 // Registration successful, redirect to login page
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/login.jsp?signerror=false");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp?signerror=false");
                 dispatcher.forward(request, response);
             } else {
                 // Registration failed (likely email already exists)
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/signup.jsp?signerror=true");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp?signerror=true");
                 dispatcher.forward(request, response);
             }
         } catch (SQLException e) {
             // Handle database error
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/signup.jsp?signerror=true");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp?signerror=true");
             dispatcher.forward(request, response);
         }
     }

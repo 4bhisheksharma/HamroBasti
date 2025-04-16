@@ -140,12 +140,6 @@
 .password-toggle img {
     width: 20px;
     height: 20px;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
-
-.password-toggle:hover img {
-    opacity: 1;
 }
 
 /* Form Options (Remember me & Forgot password) */

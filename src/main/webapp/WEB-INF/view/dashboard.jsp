@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav>
-    <%@include file="/widgets/navbar.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/navbar.jsp" %>
 </nav>
 <main>
     <!-- Hero Section -->
@@ -106,7 +106,7 @@
     </section>
 </main>
 <footer>
-    <%@include file="/widgets/footer.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/footer.jsp" %>
 </footer>
 </body>
 </html>

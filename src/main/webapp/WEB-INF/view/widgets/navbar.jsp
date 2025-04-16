@@ -15,7 +15,7 @@
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
-                <li class="navbar-item"><a href="#">Home</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
@@ -23,7 +23,8 @@
         </div>
         <div class="navbar-auth">
 <%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
-<%--             here we will fetch the name of the user who is logged in--%>
+<%--             TODO: here we will fetch the name of the user who is logged in--%>
+            <p>User_user</p>
             <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -34,12 +35,12 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
         <ul class="mobile-menu-items">
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/login.jsp">Log In</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/signup.jsp">Sign Up</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/auth/login.jsp">Log In</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/auth/signup.jsp">Sign Up</a></li>
         </ul>
     </div>
 </nav>
