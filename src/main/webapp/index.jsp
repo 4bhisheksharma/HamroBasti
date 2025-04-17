@@ -17,14 +17,14 @@
         <div class="navbar-menu">
             <ul class="navbar-items">
                 <li class="navbar-item"><a href="index.jsp">Home</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">Report</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
             </ul>
         </div>
         <div class="navbar-auth">
             <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>
-            <a href="${pageContext.request.contextPath}/register" class="signup-btn">Sign Up</a>
+            <a href="${pageContext.request.contextPath}/login" class="signup-btn">Sign Up</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>
@@ -35,11 +35,11 @@
     <div class="mobile-menu" id="mobile-menu">
         <ul class="mobile-menu-items">
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Report</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Log In</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/register">Sign Up</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Report</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Log In</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Sign Up</a></li>
         </ul>
     </div>
 </nav>
@@ -51,7 +51,7 @@
                 <div class="hero-content">
                     <h1>Help Keep Your <span class="highlight">Community</span> Safe and Clean</h1>
                     <p>Report issues and track solutions through the Hamro-Basti platform</p>
-                    <a href="${pageContext.request.contextPath}/register" class="btn">Report an Issue</a>
+                    <a href="${pageContext.request.contextPath}/login" class="btn">Report an Issue</a>
                 </div>
                 <div class="hero-image">
                     <img src="${pageContext.request.contextPath}/assets/images/report.png" alt="Community illustration">
@@ -98,8 +98,8 @@
             <h2>Join Our <span class="highlight">Community</span></h2>
             <p>Together through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
             <div class="cta-buttons">
-                <a href="${pageContext.request.contextPath}/register" class="btn">Register Now</a>
-                <a href="${pageContext.request.contextPath}/register" class="btn-outline">Learn More</a>
+                <a href="${pageContext.request.contextPath}/login" class="btn">Register Now</a>
+                <a href="${pageContext.request.contextPath}/login" class="btn-outline">Learn More</a>
             </div>
         </div>
     </section>
@@ -150,9 +150,9 @@
             <h3>Quick Links</h3>
             <ul>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/register">ContactUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">Report</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
 
             </ul>
         </div>
