@@ -11,6 +11,8 @@ public class Report {
     private int status_id;
     private Timestamp created_at;
     private Timestamp updated_at;
+    private int image_id;
+    //TODO: to refine image adding model
 
     public Report() {
     }

@@ -24,7 +24,8 @@
         <div class="navbar-auth">
 <%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
 <%--             TODO: here we will fetch the name of the user who is logged in--%>
-            <p>User_user</p>
+            <p>Hello</p>
+            <a href="${pageContext.request.contextPath}/profile"  class="signup-btn"><img src="#" alt="Profile"><span>Me ▼</span></a>
             <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">

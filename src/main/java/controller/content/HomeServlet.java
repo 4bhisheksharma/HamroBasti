@@ -1,4 +1,4 @@
-package controller;
+package controller.content;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -11,7 +11,7 @@ import model.User;
 
 import java.io.IOException;
 
-@WebServlet(name = "HomeServlet", value = {"/home", "/"})
+@WebServlet(name = "HomeServlet", value = {"/home"})
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

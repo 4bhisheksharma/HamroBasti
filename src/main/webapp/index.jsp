@@ -24,7 +24,7 @@
         </div>
         <div class="navbar-auth">
             <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>
-            <a href="${pageContext.request.contextPath}/login" class="signup-btn">Sign Up</a>
+            <a href="${pageContext.request.contextPath}/register" class="signup-btn">Sign Up</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>
