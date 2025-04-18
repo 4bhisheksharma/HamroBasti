@@ -1,4 +1,4 @@
-package controller;
+package controller.auth;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -18,7 +18,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp");
         dispatcher.forward(request, response);
-
     }
 
     @Override

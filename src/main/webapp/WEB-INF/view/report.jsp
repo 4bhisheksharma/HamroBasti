@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav>
-    <%@include file="/widgets/navbar.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/navbar.jsp" %>
 </nav>
 <main>
     <div class="reports-container">
@@ -41,10 +41,8 @@
                 <select id="priority-filter" aria-label="Filter by priority">
                     <option value="">Priority</option>
                     <option value="critical">Critical</option>
-                    <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="normal">Normal</option>
-                    <option value="low">Low</option>
                 </select>
             </div>
 
@@ -55,7 +53,6 @@
                     <option value="pending">Pending</option>
                     <option value="in-progress">In Progress</option>
                     <option value="resolved">Resolved</option>
-                    <option value="closed">Closed</option>
                 </select>
             </div>
 
@@ -268,7 +265,7 @@
     </div>
 </main>
 <footer>
-    <%@include file="/widgets/footer.jsp" %>
+    <%@include file="/WEB-INF/view/widgets/footer.jsp" %>
 </footer>
 </body>
 </html>
