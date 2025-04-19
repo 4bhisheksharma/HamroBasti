@@ -33,25 +33,6 @@ public class UserDAO {
         return -1;
     }
 
-//    public static User validateUser(String email, String password) throws SQLException {
-//        String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
-//        try(Connection conn = DBUtil.getConnection();
-//            PreparedStatement ps = conn.prepareStatement(sql)){
-//            ps.setString(1, email);
-//            ps.setString(2, password);
-//            ResultSet rs = ps.executeQuery();
-//            if(rs.next()) {
-//                User user = new User();
-//                user.setFullName(rs.getString("full_name"));
-//                user.setEmail(rs.getString("email"));
-//                user.setPassword(rs.getString("password"));
-//                user.setRoleId(rs.getInt("role"));
-//                return user;
-//            }
-//        }
-//        return null;
-//    }
-
     public static int getUserByEmail(String email) throws SQLException {
         String sql = "SELECT * FROM users WHERE email = ?";
         try(Connection conn = DBUtil.getConnection();
@@ -66,6 +47,29 @@ public class UserDAO {
             System.err.println(e.getMessage());
         }
         return -1;
+    }
+
+    public static User getUserById(int user_id) throws SQLException {
+        String sql = "SELECT * FROM users WHERE user_id = ?";
+        try {
+            Connection conn = DBUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("user_id"));
+                user.setFullName(rs.getString("full_name"));
+                user.setEmail(rs.getString("email"));
+                user.setCreated_at(rs.getTimestamp("created_at"));
+                user.setBio(rs.getString("bio"));
+                return user;
+            }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        return null;
     }
 
     public static User getUserByEmailOnly(String email) {

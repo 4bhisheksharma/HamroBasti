@@ -1,15 +1,41 @@
 package model;
 
+import java.security.Timestamp;
+
 public class User {
     private int id;
     private int roleId = 1;
     private String fullName;
     private String email;
     private String password;
+    private Timestamp created_at;
+    private byte[] user_image;
+    private String bio;
 
     public User() {
-
     }
+
+    public User(int id, int roleId, String fullName, String email, String password, Timestamp created_at, byte[] user_image, String bio) {
+        this.id = id;
+        this.roleId = roleId;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+        this.user_image = user_image;
+        this.bio = bio;
+    }
+
+    public User(int id, int roleId, String fullName, String email, String password, Timestamp created_at, byte[] image) {
+        this.id = id;
+        this.roleId = roleId;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+        this.user_image = image;
+    }
+
 
     public User(int id, int roleId, String fullName, String email, String password) {
         this.id = id;
@@ -72,6 +98,22 @@ public class User {
         this.password = password;
     }
 
+    public Timestamp getCreatedAt() {return created_at;}
+
+    public void setCreated_at(Timestamp created_at) {this.created_at = created_at;}
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public byte[] getUserImage() {return user_image;}
+
+    public void setUserImage(byte[] image) {this.user_image = image;}
+
 
 
     public boolean isRegularUser() {
@@ -92,4 +134,7 @@ public class User {
         return roleId == 1 || roleId == 2; // Regular user or regular admin
     }
 
+
+    public void setCreated_at(java.sql.Timestamp createdAt) {
+    }
 }

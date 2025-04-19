@@ -22,11 +22,13 @@
             </ul>
         </div>
         <div class="navbar-auth">
-<%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
-<%--             TODO: here we will fetch the name of the user who is logged in--%>
-            <p>Hello</p>
-            <a href="${pageContext.request.contextPath}/profile"  class="signup-btn"><img src="#" alt="Profile"><span>Me ▼</span></a>
-            <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
+
+    <a href="${pageContext.request.contextPath}/profile" class="nav-profile">
+        <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png" alt="Profile">
+        <span>Me ▼</span>
+    </a>
+
+    <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>
