@@ -30,6 +30,10 @@
         <label>
             <input type="text" name="bio" value="${user.bio}" required/>
         </label><br/>
+        <label>Created at:</label>
+        <label>
+            <input type="text" name="timestamp" value="${user.createdAt}" required/>
+        </label><br/>
         <label>Photo:</label>
         <input type="file" name="profileImage" accept="image/*"/><br/>
         <button type="submit">Save Changes</button>

@@ -17,8 +17,8 @@
             <ul class="navbar-items">
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
             </ul>
         </div>
         <div class="navbar-auth">
