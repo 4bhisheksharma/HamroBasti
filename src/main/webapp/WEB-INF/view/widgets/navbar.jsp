@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,22 +12,36 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="#">हाम्रो-बस्ती</a>
+            <a href="${pageContext.request.contextPath}/home">हाम्रो-बस्ती</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
             </ul>
         </div>
         <div class="navbar-auth">
-<%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
-<%--             TODO: here we will fetch the name of the user who is logged in--%>
-            <p>Hello</p>
-            <a href="${pageContext.request.contextPath}/profile"  class="signup-btn"><img src="#" alt="Profile"><span>Me ▼</span></a>
-            <a href="${pageContext.request.contextPath}/login" class="signup-btn">Log Out</a>
+
+    <a href="${pageContext.request.contextPath}/profile" class="nav-profile">
+        <c:choose>
+            <c:when test="${not empty user.userImage}">
+                <img src="data:image/jpeg;base64,${user.userImageAsBase64}"
+                     class="avatar-preview"
+                     alt="Profile Avatar"
+                     id="avatarPreview">
+            </c:when>
+            <c:otherwise>
+                <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"
+                     class="avatar-preview"
+                     alt="Default Avatar"
+                     id="avatarPreview">
+            </c:otherwise>
+        </c:choose>
+    </a>
+
+    <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>

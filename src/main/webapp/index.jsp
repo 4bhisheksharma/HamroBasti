@@ -18,8 +18,8 @@
             <ul class="navbar-items">
                 <li class="navbar-item"><a href="index.jsp">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
             </ul>
         </div>
         <div class="navbar-auth">
@@ -36,8 +36,8 @@
         <ul class="mobile-menu-items">
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Report</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Log In</a></li>
             <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/login">Sign Up</a></li>
         </ul>
@@ -99,7 +99,7 @@
             <p>Together through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
             <div class="cta-buttons">
                 <a href="${pageContext.request.contextPath}/login" class="btn">Register Now</a>
-                <a href="${pageContext.request.contextPath}/login" class="btn-outline">Learn More</a>
+                <a href="${pageContext.request.contextPath}/about" class="btn-outline">Learn More</a>
             </div>
         </div>
     </section>
@@ -151,8 +151,8 @@
             <ul>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/login">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/login">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/login">ContactUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
 
             </ul>
         </div>

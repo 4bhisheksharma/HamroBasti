@@ -154,6 +154,36 @@
     padding: 5px 0;
 }
 
+/* Container for the profile link */
+.nav-profile {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.nav-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.nav-profile span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-profile span:hover {
+    text-decoration: underline;  /* Optional: adds underline on hover */
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar-menu, .navbar-auth {

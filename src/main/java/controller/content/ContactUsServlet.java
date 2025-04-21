@@ -11,8 +11,9 @@ import model.User;
 
 import java.io.IOException;
 
-@WebServlet(name = "HomeServlet", value = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "ContactUsServlet", value = "/contact")
+public class ContactUsServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -23,9 +24,8 @@ public class HomeServlet extends HttpServlet {
             return;
         }
         else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/dashboard.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/contact.jsp");
             dispatcher.forward(request, response);
         }
     }
 }
-

@@ -16,6 +16,9 @@ CREATE TABLE users (
                        full_name VARCHAR(100) NOT NULL,
                        email VARCHAR(100) UNIQUE NOT NULL,
                        password VARCHAR(255) NOT NULL,
+                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                       user_profile MEDIUMBLOB NULL,
+                       bio VARCHAR(100) NULL,
                        FOREIGN KEY (role_id) REFERENCES roles(role_id)
 );
 
@@ -61,6 +64,7 @@ INSERT INTO roles (name) VALUES
                              ('admin');
 
 INSERT INTO priorities (label) VALUES
+                                   ('Not Set'),
                                    ('Critical'),
                                    ('Medium'),
                                    ('Normal');
