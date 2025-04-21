@@ -60,7 +60,7 @@
                        name="email"
                        class="form-control"
                        value="${user.email}"
-                       required>
+                       readonly>
             </div>
 
             <div class="form-group">
@@ -76,7 +76,27 @@
                 <input type="text"
                        id="createdat"
                        class="form-control"
-                       value="<fmt:formatDate value="${user.createdAt}" pattern="MMMM dd, yyyy"/>"
+                       value="<c:choose>
+                      <c:when test="${not empty user.createdAt}">
+                          <fmt:formatDate value="${user.createdAt}" pattern="MMMM dd, yyyy"/>
+                      </c:when>
+                      <c:otherwise>
+                          Not available
+                      </c:otherwise>
+                  </c:choose>"
+                       readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text"
+                       id="role"
+                       class="form-control"
+                       value="<c:choose>
+                      <c:when test="${user.roleId == 1}">Resident</c:when>
+                      <c:when test="${user.roleId == 2}">Admin</c:when>
+                      <c:otherwise>Unknown Role</c:otherwise>
+                  </c:choose>"
                        readonly>
             </div>
 

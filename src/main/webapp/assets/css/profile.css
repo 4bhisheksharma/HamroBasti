@@ -28,7 +28,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid #4CAF50;
+    border: 3px solid #7b5cff;
 }
 
 .form-group {
@@ -53,12 +53,12 @@
 
 .form-control:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #7b5cff;
     box-shadow: 0 0 0 3px rgba(76,175,80,0.1);
 }
 
 .btn-save {
-    background: #4CAF50;
+    background: #7b5cff;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -69,7 +69,7 @@
 }
 
 .btn-save:hover {
-    background: #45a049;
+    background: #7b5cff;
 }
 
 .message {
@@ -80,7 +80,7 @@
 
 .success {
     background: #d4edda;
-    color: #155724;
+    color: #573cce;
 }
 
 .error {

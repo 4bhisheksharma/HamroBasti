@@ -1,6 +1,6 @@
 package model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Base64;
 
 public class User {
@@ -9,7 +9,7 @@ public class User {
     private String fullName;
     private String email;
     private String password;
-    private Timestamp created_at;
+    private Timestamp createdAt;
     private byte[] user_image;
     private String bio;
 
@@ -22,7 +22,7 @@ public class User {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.created_at = created_at;
+        this.createdAt = created_at;
         this.user_image = user_image;
         this.bio = bio;
     }
@@ -33,7 +33,7 @@ public class User {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.created_at = created_at;
+        this.createdAt = created_at;
         this.user_image = image;
     }
 
@@ -99,9 +99,9 @@ public class User {
         this.password = password;
     }
 
-    public Timestamp getCreatedAt() {return created_at;}
+    public Timestamp getCreatedAt() {return createdAt;}
 
-    public void setCreated_at(Timestamp created_at) {this.created_at = created_at;}
+    public void setCreated_at(Timestamp created_at) {this.createdAt = created_at;}
 
     public String getBio() {
         return bio;
@@ -136,8 +136,6 @@ public class User {
     }
 
 
-    public void setCreated_at(java.sql.Timestamp createdAt) {
-    }
 
     public String getUserImageAsBase64() {
         if (user_image == null) return "";

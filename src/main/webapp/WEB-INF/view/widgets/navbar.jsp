@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,8 +25,20 @@
         <div class="navbar-auth">
 
     <a href="${pageContext.request.contextPath}/profile" class="nav-profile">
-        <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png" alt="Profile">
-        <span>Me ▼</span>
+        <c:choose>
+            <c:when test="${not empty user.userImage}">
+                <img src="data:image/jpeg;base64,${user.userImageAsBase64}"
+                     class="avatar-preview"
+                     alt="Profile Avatar"
+                     id="avatarPreview">
+            </c:when>
+            <c:otherwise>
+                <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"
+                     class="avatar-preview"
+                     alt="Default Avatar"
+                     id="avatarPreview">
+            </c:otherwise>
+        </c:choose>
     </a>
 
     <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
