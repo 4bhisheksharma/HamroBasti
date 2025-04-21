@@ -11,11 +11,11 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="#">हाम्रो-बस्ती - Admin</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard">हाम्रो-बस्ती - Admin</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
+                <li class="navbar-item"><a href="${pageContext.request.contextPath}/admin/dashboard">Home</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
                 <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>

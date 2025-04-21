@@ -1,6 +1,7 @@
 package model;
 
 import java.security.Timestamp;
+import java.util.Base64;
 
 public class User {
     private int id;
@@ -136,5 +137,10 @@ public class User {
 
 
     public void setCreated_at(java.sql.Timestamp createdAt) {
+    }
+
+    public String getUserImageAsBase64() {
+        if (user_image == null) return "";
+        return Base64.getEncoder().encodeToString(user_image);
     }
 }

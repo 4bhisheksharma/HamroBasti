@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import model.User;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 
 @WebServlet(name = "ProfileServlet", value = "/profile")
@@ -34,9 +35,17 @@ public class ProfileServlet extends HttpServlet {
             throw new ServletException("DB error fetching user", e);
         }
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //TODO:
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("user_id") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
     }
+
+
 }
 
 

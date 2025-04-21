@@ -11,7 +11,7 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="#">हाम्रो-बस्ती</a>
+            <a href="${pageContext.request.contextPath}/home">हाम्रो-बस्ती</a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-items">
