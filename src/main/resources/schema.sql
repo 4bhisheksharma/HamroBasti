@@ -58,6 +58,16 @@ CREATE TABLE report_images (
                                FOREIGN KEY (report_id) REFERENCES reports(report_id) ON DELETE CASCADE
 );
 
+-- Create the activity_logs table to track user activities
+CREATE TABLE activity_logs (
+                                             activity_id INT AUTO_INCREMENT PRIMARY KEY,
+                                             activity VARCHAR(255) NOT NULL,       -- Description of the activity
+                                             activity_type VARCHAR(50),            -- Type of activity (upload, delete, login, etc.)
+                                             user_id INT,                          -- Foreign key to link the activity to a user
+                                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- Track when the activity occurred
+                                             FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE -- Ensure logs are deleted if the user is deleted
+);
+
 -- Insert initial data
 INSERT INTO roles (name) VALUES
                              ('resident'),
