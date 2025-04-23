@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +23,24 @@
             </ul>
         </div>
         <div class="navbar-auth">
-<%--            <a href="${pageContext.request.contextPath}/login" class="login-btn">Log In</a>--%>
-<%--             here we will fetch the name of the user who is logged in--%>
+<%--            <a href="${pageContext.request.contextPath}/admin/profile" class="nav-profile">--%>
+<%--                <c:choose>--%>
+<%--                    <jsp:useBean id="user" scope="request" type="model.User"/>--%>
+<%--                    <c:when test="${not empty user.userImage}">--%>
+<%--                        <img src="data:image/jpeg;base64,${user.userImageAsBase64}"--%>
+<%--                             class="avatar-preview"--%>
+<%--                             alt="Profile Avatar"--%>
+<%--                             id="avatarPreview">--%>
+<%--                    </c:when>--%>
+<%--                    <c:otherwise>--%>
+<%--                        <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"--%>
+<%--                             class="avatar-preview"--%>
+<%--                             alt="Default Avatar"--%>
+<%--                             id="avatarPreview">--%>
+<%--                    </c:otherwise>--%>
+<%--                </c:choose>--%>
+<%--            </a>--%>
+
             <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">

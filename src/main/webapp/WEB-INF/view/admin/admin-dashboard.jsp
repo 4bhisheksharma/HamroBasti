@@ -15,9 +15,9 @@
         <div class="container">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Aare ma<span class="highlight"> बलराम </span>admin bata, namaskaram!</h1>
-                    <p>Report issues and track solutions through the Hamro-Basti platform</p>
-                    <a href="${pageContext.request.contextPath}/report" class="btn">View more</a>
+                    <h1>Welcome back<span class="highlight"> Administrator </span></h1>
+                    <p>Click the button below to explore more...</p>
+                    <a href="${pageContext.request.contextPath}/404" class="btn">View more</a>
                 </div>
                 <div class="hero-image">
                     <img src="${pageContext.request.contextPath}/assets/images/admin_dashboard_image.png" alt="admin image">
