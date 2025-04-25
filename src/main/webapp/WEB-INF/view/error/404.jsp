@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel href="${pageContext.request.contextPath}/webapp/assets/css/style.css"></link>
 </head>
 <body>
 <P>hello from error page</P>

@@ -37,7 +37,7 @@ public class AuthFilter implements Filter {
             res.sendRedirect(ctx + "/landing-page");
         }
     }catch(Exception e){
-//        System.out.printf("radhe radhe!");
+        System.out.println("radhe radhe!");
         res.sendRedirect(ctx + "/404");
     }
 
