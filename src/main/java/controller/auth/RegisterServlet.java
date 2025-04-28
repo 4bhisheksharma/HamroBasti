@@ -44,5 +44,4 @@ public class RegisterServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-
 }

@@ -1,63 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Hamro-Basti</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/navbar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/admin-style.css">
 </head>
 <body>
-<nav class="navbar">
-    <div class="navbar-container">
-        <div class="navbar-logo">
-            <a href="${pageContext.request.contextPath}/admin/dashboard">हाम्रो-बस्ती - Admin</a>
+<nav class="admin-layout">
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">हाम्रो-बस्ती</div>
+            <div class="sidebar-subtitle">Admin Panel</div>
         </div>
-        <div class="navbar-menu">
-            <ul class="navbar-items">
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/admin/dashboard">Home</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-                <li class="navbar-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
-            </ul>
-        </div>
-        <div class="navbar-auth">
-<%--            <a href="${pageContext.request.contextPath}/admin/profile" class="nav-profile">--%>
-<%--                <c:choose>--%>
-<%--                    <jsp:useBean id="user" scope="request" type="model.User"/>--%>
-<%--                    <c:when test="${not empty user.userImage}">--%>
-<%--                        <img src="data:image/jpeg;base64,${user.userImageAsBase64}"--%>
-<%--                             class="avatar-preview"--%>
-<%--                             alt="Profile Avatar"--%>
-<%--                             id="avatarPreview">--%>
-<%--                    </c:when>--%>
-<%--                    <c:otherwise>--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"--%>
-<%--                             class="avatar-preview"--%>
-<%--                             alt="Default Avatar"--%>
-<%--                             id="avatarPreview">--%>
-<%--                    </c:otherwise>--%>
-<%--                </c:choose>--%>
-<%--            </a>--%>
-
-            <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
-        </div>
-        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-        <ul class="mobile-menu-items">
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/home">Home</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/report">Report</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/auth/login.jsp">Log In</a></li>
-            <li class="mobile-menu-item"><a href="${pageContext.request.contextPath}/WEB-INF/view/auth/signup.jsp">Sign Up</a></li>
-        </ul>
+        <nav class="sidebar-nav">
+            <a href="${pageContext.request.contextPath}/admin/dashboard" class="sidebar-nav-item active">Dashboard</a>
+            <a href="${pageContext.request.contextPath}/404" class="sidebar-nav-item">Reports</a>
+            <a href="${pageContext.request.contextPath}/admin/users" class="sidebar-nav-item">Users</a>
+        </nav>
     </div>
 </nav>
 </body>
