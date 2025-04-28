@@ -12,6 +12,7 @@
 <body>
 <nav>
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
+<%--    TODO: manage this all--%>
 </nav>
 <div class="admin-layout">
     <!-- Main Content -->
