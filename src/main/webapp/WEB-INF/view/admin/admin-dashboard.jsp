@@ -4,167 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Hamro-Basti</title>
-<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">--%>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/admin-style.css">
-
 </head>
 <body>
-<nav>
+<div class="main-container">
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
-<%--    TODO: manage this all--%>
-</nav>
-<div class="admin-layout">
+
+    <!-- Sidebar -->
+<%--    <div class="sidebar">--%>
+<%--        <div class="sidebar-header">--%>
+<%--            <h2>हाम्रो-बस्ती</h2>--%>
+<%--            <p>Admin Panel</p>--%>
+<%--        </div>--%>
+<%--        <div class="sidebar-menu">--%>
+<%--            <div class="menu-item active">Dashboard</div>--%>
+<%--            <div class="menu-item">Reports</div>--%>
+<%--            <div class="menu-item">Users</div>--%>
+<%--            <div class="menu-item">Logout 📤</div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
     <!-- Main Content -->
-    <div class="admin-content">
-        <!-- Header -->
-        <header class="admin-header">
-            <h1 class="header-title">Admin Dashboard</h1>
-            <div class="header-user">
-                <div class="header-user-greeting">Hello, Administrator</div>
-                <div class="header-user-avatar">A</div>
+    <div class="content">
+        <div class="header">
+            <h1>Admin Dashboard</h1>
+            <div class="user-info">
+                Hello, Administrator
+                <div class="profile-icon">
+                    <span>A</span>
+                </div>
             </div>
-        </header>
+        </div>
 
-        <!-- Dashboard Content -->
-        <div class="dashboard-container">
+        <div class="dashboard-content">
             <!-- Stats Cards -->
-            <div class="stats-grid">
-                <div class="stats-card">
-                    <div class="stats-info">
-                        <div class="stats-title">Total Reports</div>
-                        <div class="stats-value">142</div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div>
+                        <h3>Total Reports</h3>
+                        <div class="stat-value">142</div>
                     </div>
-                    <div class="stats-icon">
-                        <div class="icon-placeholder"></div>
-                    </div>
+                    <div class="chart-icon">📊</div>
                 </div>
 
-                <div class="stats-card">
-                    <div class="stats-info">
-                        <div class="stats-title">Pending</div>
-                        <div class="stats-value">37</div>
+                <div class="stat-card">
+                    <div>
+                        <h3>Pending</h3>
+                        <div class="stat-value">142</div>
                     </div>
-                    <div class="stats-icon">
-                        <div class="icon-placeholder"></div>
-                    </div>
+                    <div class="chart-icon">📊</div>
                 </div>
 
-                <div class="stats-card">
-                    <div class="stats-info">
-                        <div class="stats-title">In Progress</div>
-                        <div class="stats-value">45</div>
+                <div class="stat-card">
+                    <div>
+                        <h3>In Progress</h3>
+                        <div class="stat-value">142</div>
                     </div>
-                    <div class="stats-icon">
-                        <div class="icon-placeholder"></div>
-                    </div>
+                    <div class="chart-icon">📊</div>
                 </div>
 
-                <div class="stats-card">
-                    <div class="stats-info">
-                        <div class="stats-title">Resolved</div>
-                        <div class="stats-value">60</div>
+                <div class="stat-card">
+                    <div>
+                        <h3>Resolved</h3>
+                        <div class="stat-value">142</div>
                     </div>
-                    <div class="stats-icon">
-                        <div class="icon-placeholder"></div>
-                    </div>
+                    <div class="chart-icon">📊</div>
                 </div>
             </div>
 
-            <!-- Search Section -->
-            <div class="search-section">
+            <!-- Search and Filter -->
+            <div class="search-container">
                 <div class="search-input">
-                    <div class="search-icon"></div>
+                    <span>🔍</span>
                     <input type="text" placeholder="Search Reports...">
                 </div>
-
                 <div class="filter-dropdown">
-                    <button class="filter-button">
-                        <div class="filter-icon"></div>
-                        Priority
-                    </button>
+                    <span>Priority</span>
+                    <span>▼</span>
                 </div>
-
                 <div class="filter-dropdown">
-                    <button class="filter-button">
-                        <div class="filter-icon"></div>
-                        Status
-                    </button>
+                    <span>Status</span>
+                    <span>▼</span>
                 </div>
             </div>
 
-            <!-- Charts Section -->
-            <div class="charts-section">
-                <div class="section-header">
-                    <h2 class="section-title">Reports <span>Overview</span></h2>
-                </div>
-
-                <div class="chart-container">
-                    <div class="chart-placeholder">
-                        Chart Placeholder - Reports by Status
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Activity Section -->
-            <div class="activity-section">
-                <div class="section-header">
-                    <h2 class="section-title">Recent <span>Activity</span></h2>
-                </div>
-
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <div class="activity-icon-placeholder"></div>
-                        </div>
-                        <div class="activity-content">
-                            <div class="activity-title">New user registered: John Doe</div>
-                            <div class="activity-time">Today, 10:30 AM</div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <div class="activity-icon-placeholder"></div>
-                        </div>
-                        <div class="activity-content">
-                            <div class="activity-title">Report status updated: Drainage issue in Ward 5</div>
-                            <div class="activity-time">Yesterday, 3:45 PM</div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <div class="activity-icon-placeholder"></div>
-                        </div>
-                        <div class="activity-content">
-                            <div class="activity-title">New report submitted: Street light not working</div>
-                            <div class="activity-time">Yesterday, 1:20 PM</div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <div class="activity-icon-placeholder"></div>
-                        </div>
-                        <div class="activity-content">
-                            <div class="activity-title">User profile updated: Sarah Johnson</div>
-                            <div class="activity-time">Apr 25, 2023</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pending Reports Section -->
+            <!-- Reports List -->
             <div class="reports-section">
-                <div class="section-header">
-                    <h2 class="section-title">Pending <span>Reports</span></h2>
-                </div>
+                <h2>Pending <span>Reports</span></h2>
 
                 <div class="report-card">
                     <div class="report-info">
-                        <h3 class="report-title">Drainage Blockage</h3>
-                        <p class="report-description">Drainage is blocked so fix this issue as soon as possible. Thank You</p>
+                        <h3>Drainage Blockage</h3>
+                        <p>Drainage is blocked so fix this issue as soon as possible. Thank You</p>
                     </div>
                     <div class="report-actions">
                         <button class="action-btn">Set Status</button>
@@ -174,8 +106,8 @@
 
                 <div class="report-card">
                     <div class="report-info">
-                        <h3 class="report-title">Street Light Not Working</h3>
-                        <p class="report-description">The street light at the corner of Main Street and Park Avenue has been out for three days.</p>
+                        <h3>Drainage Blockage</h3>
+                        <p>Drainage is blocked so fix this issue as soon as possible. Thank You</p>
                     </div>
                     <div class="report-actions">
                         <button class="action-btn">Set Status</button>
@@ -185,8 +117,8 @@
 
                 <div class="report-card">
                     <div class="report-info">
-                        <h3 class="report-title">Garbage Collection Missed</h3>
-                        <p class="report-description">The garbage collection service did not come to our area this week. Please address this issue.</p>
+                        <h3>Drainage Blockage</h3>
+                        <p>Drainage is blocked so fix this issue as soon as possible. Thank You</p>
                     </div>
                     <div class="report-actions">
                         <button class="action-btn">Set Status</button>
@@ -198,22 +130,56 @@
     </div>
 </div>
 
-<!-- Admin Footer -->
-<footer>
-    <%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
-</footer>
+<!-- Footer -->
+<%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
+<%--<div class="footer">--%>
+<%--    <div class="footer-content">--%>
+<%--        <div class="footer-section">--%>
+<%--            <h3>Hamro-Basti - Admin</h3>--%>
+<%--            <p>Community-based problem reporting and solution platform</p>--%>
+<%--        </div>--%>
+
+<%--        <div class="footer-section">--%>
+<%--            <h3>Quick Links</h3>--%>
+<%--            <a href="#">Dashboard</a>--%>
+<%--            <a href="#">Reports</a>--%>
+<%--            <a href="#">Users</a>--%>
+<%--        </div>--%>
+
+<%--        <div class="footer-section">--%>
+<%--            <h3>Contact</h3>--%>
+<%--            <p>info@hamrobasti.np</p>--%>
+<%--            <p>+977 01-2345678</p>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<%--<div class="copyright">--%>
+<%--    © 2025 Hamro-Basti. All rights reserved.--%>
+<%--</div>--%>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Placeholder for any JavaScript functionality
-        console.log('Dashboard UI loaded');
+    // Simple JavaScript for menu item selection
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 
-        // Example of how you might implement filter dropdowns
-        const filterButtons = document.querySelectorAll('.filter-button');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Filter dropdown would appear here');
-            });
+    // Simple JavaScript for dropdown functionality
+    document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('click', function() {
+            // In a real application, you would toggle a dropdown menu here
+            console.log('Dropdown clicked');
+        });
+    });
+
+    // Action buttons functionality
+    document.querySelectorAll('.action-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // In a real application, you would show a modal or form here
+            alert('Action button clicked: ' + this.textContent);
         });
     });
 </script>
