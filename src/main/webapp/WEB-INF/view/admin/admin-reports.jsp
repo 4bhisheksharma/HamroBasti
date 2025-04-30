@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Reports - Hamro-Basti</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/admin/admin-style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/admin/admin-reports.css">
 
 </head>
 <body>
 <div class="main-container">
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
+
 
     <!-- Main content -->
     <div class="main-content">

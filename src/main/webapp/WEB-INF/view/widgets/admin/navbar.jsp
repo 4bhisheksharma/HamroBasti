@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Hamro-Basti</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/admin-style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/admin-dashboard.css">
 </head>
 <body>
 <!-- Sidebar -->
