@@ -32,7 +32,7 @@
             <div class="user-info">
                 Hello, Administrator
                 <div class="profile-icon">
-                    <span>A</span>
+                  <a href="${pageContext.request.contextPath}/admin/profile">  <span>A</span></a>
                 </div>
             </div>
         </div>
