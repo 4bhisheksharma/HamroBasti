@@ -14,7 +14,7 @@
 <nav>
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
 </nav>
-
+<%--TODO: fix this all--%>
 <div class="profile-container">
     <div class="profile-header">
         <h2>Your Profile</h2>

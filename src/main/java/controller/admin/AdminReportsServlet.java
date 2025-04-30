@@ -7,16 +7,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.User;
+
 import java.io.IOException;
 
-@WebServlet (name = "AdminProfileServlet", urlPatterns = {"/admin/profile"})
-public class AdminProfileServlet extends HttpServlet {
-
+@WebServlet(name = "AdminReportsServlet", urlPatterns = {"/admin/reports"})
+public class AdminReportsServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Forward to dashboard page
-        request.getRequestDispatcher("/WEB-INF/view/admin/admin-profile.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Forward to admin reports page
+        request.getRequestDispatcher("/WEB-INF/view/admin/admin-reports.jsp").forward(request, response);
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 

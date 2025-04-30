@@ -27,7 +27,52 @@
         </div>
 
         <!-- Report New Issue Button -->
-        <a href="report-issue.jsp" class="report-new-btn">Report a new Issue</a>
+        <a href="#" class="report-new-btn">Report a new Issue</a>
+
+        <dialog id="reportDialog" class="report-modal">
+            <form id="reportForm"
+                  action="uploadImage"
+                  method="post"
+                  enctype="multipart/form-data"
+                  class="modal-content">
+                <h2>Add Report</h2>
+
+                <!-- hidden reportId (set this server-side per report) -->
+                <input type="hidden" name="reportId" value="${param.reportId}" />
+
+                <label>
+                    Title:<br>
+                    <input type="text" name="title"
+                           placeholder="Enter your report title…" required>
+                </label>
+
+                <label>
+                    Description:<br>
+                    <textarea name="description"
+                              placeholder="Enter your report description…" required>
+      </textarea>
+                </label>
+
+                <label>
+                    Screenshot / Photo:<br>
+                    <input type="file" name="reportImage"
+                           accept="image/*" required>
+                </label>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-outline" id="cancelBtn">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Submit
+                    </button>
+                </div>
+
+                <!-- inline feedback -->
+                <div id="uploadFeedback" style="margin-top:1rem;color:#e74c3c;"></div>
+            </form>
+        </dialog>
+
 
         <!-- Filter Section -->
         <div class="filter-section">
@@ -183,89 +228,71 @@
                 </div>
             </div>
         </div>
-
-        <!-- Community Reports Section -->
-        <div class="reports-section">
-            <h2>Community <span>Reports</span></h2>
-
-            <div class="reports-grid">
-                <!-- Report Card 1 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Road Pothole</div>
-                            <div class="report-card-date">Reported on: 18 Jun 2023</div>
-                        </div>
-                        <div class="report-card-priority priority-high">High</div>
-                    </div>
-                    <div class="report-card-description">
-                        Large pothole on main road causing traffic and accidents. Please repair urgently.
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">In Progress</div>
-                        <div class="report-card-location">Ward 2, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 2 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Garbage Collection</div>
-                            <div class="report-card-date">Reported on: 16 Jun 2023</div>
-                        </div>
-                        <div class="report-card-priority priority-medium">Medium</div>
-                    </div>
-                    <div class="report-card-description">
-                        Garbage has not been collected for a week. Bad smell and health hazard.
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Pending</div>
-                        <div class="report-card-location">Ward 4, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 3 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Water Supply Issue</div>
-                            <div class="report-card-date">Reported on: 12 Jun 2023</div>
-                        </div>
-                        <div class="report-card-priority priority-critical">Critical</div>
-                    </div>
-                    <div class="report-card-description">
-                        No water supply for 3 days. Urgent assistance needed for the community.
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">In Progress</div>
-                        <div class="report-card-location">Ward 6, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 4 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Stray Dogs</div>
-                            <div class="report-card-date">Reported on: 8 Jun 2023</div>
-                        </div>
-                        <div class="report-card-priority priority-normal">Normal</div>
-                    </div>
-                    <div class="report-card-description">
-                        Group of stray dogs in the area causing disturbance at night. Need animal control.
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Pending</div>
-                        <div class="report-card-location">Ward 1, Kathmandu</div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 <footer>
     <%@include file="/WEB-INF/view/widgets/footer.jsp" %>
 </footer>
+<script>
+    const btn  = document.querySelector('.report-new-btn');
+    const dialog = document.getElementById('reportDialog');
+    const openBtn    = document.querySelector('.report-new-btn');
+    const cancelBtn  = document.getElementById('cancelBtn');
+    const form       = document.getElementById('reportForm');
+    const feedbackEl = document.getElementById('uploadFeedback');
+
+    // Open modal
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        dialog.showModal();
+    });
+
+    // Close on Cancel (value="cancel") or clicking outside
+    dialog.addEventListener('cancel', () => dialog.close());
+    dialog.addEventListener('click', e => {
+        // if backdrop clicked
+        const rect = dialog.getBoundingClientRect();
+        if (
+            e.clientX < rect.left ||
+            e.clientX > rect.right ||
+            e.clientY < rect.top ||
+            e.clientY > rect.bottom
+        ) {
+            dialog.close();
+        }
+    });
+
+
+    // 2. Cancel button closes
+    cancelBtn.addEventListener('click', () => dialog.close());
+
+    // 3. Handle submission via Fetch
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        feedbackEl.style.color = '#333';
+        feedbackEl.textContent = 'Uploading…';
+
+        try {
+            const resp = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            });
+            if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
+            const json = await resp.json();
+
+            if (json.success) {
+                feedbackEl.style.color = '#27ae60';
+                feedbackEl.textContent = json.message;
+                // optionally close after a delay:
+                setTimeout(() => dialog.close(), 1000);
+            } else {
+                throw new Error(json.message || 'Upload failed');
+            }
+        } catch (err) {
+            feedbackEl.style.color = '#e74c3c';
+            feedbackEl.textContent = err.message;
+        }
+    });
+</script>
 </body>
 </html>

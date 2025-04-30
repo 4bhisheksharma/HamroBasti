@@ -507,6 +507,70 @@ section {
     transform: translateY(-2px);
 }
 
+.report-modal {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+}
+
+/*reporting a new report*/
+
+/* Backdrop style */
+reportDialog::backdrop {
+    background: rgba(0,0,0,0.4);
+}
+
+/* Modal inner box */
+.modal-content {
+    background: var(--primary-light);
+    color: var(--text-light);
+    padding: 2rem;
+    display: grid;
+    gap: 1rem;
+    border-radius: 8px;
+}
+.modal-content h2 {
+    margin-top: 0;
+}
+.modal-content label {
+    display: block;
+    font-weight: 600;
+}
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+.btn-primary {
+    background: var(--text-light);
+    color: var(--primary-light);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.btn-outline {
+    background: transparent;
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--text-light);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 /* Filter Section */
 .filter-section {
     background-color: #7b5cff;

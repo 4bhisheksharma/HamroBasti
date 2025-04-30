@@ -4,38 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/admin-dashboard.css">
     <title>Hamro-Basti</title>
 </head>
 <body>
-<footer class="footer">
-    <div class="footer-container">
+<div class="footer">
+    <div class="footer-content">
         <div class="footer-section">
-            <h3>Admin - Hamro-Basti</h3>
-            <p>Community-based platform reporting and resolving issues</p>
+            <h3>Hamro-Basti - Admin</h3>
+            <p>Community-based problem reporting and solution platform</p>
         </div>
 
         <div class="footer-section">
             <h3>Quick Links</h3>
-            <ul>
-                <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/report">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
-
-            </ul>
+            <a href="#">Dashboard</a>
+            <a href="#">Reports</a>
+            <a href="#">Users</a>
         </div>
 
         <div class="footer-section">
             <h3>Contact</h3>
-            <p>info@hamro-basti.np</p>
-            <p>+977-01-23456789</p>
+            <p>info@hamrobasti.np</p>
+            <p>+977 01-2345678</p>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Hamro-Basti. All rights reserved.</p>
-        <p>V: 1.1 (admin)</p>
-    </div>
-</footer>
+</div>
+
+<div class="copyright">
+    © 2025 Hamro-Basti. All rights reserved.
+</div>
 </body>
 </html>
