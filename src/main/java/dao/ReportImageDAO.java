@@ -13,42 +13,31 @@ import java.util.List;
  */
 public class ReportImageDAO {
     private static final String INSERT_SQL =
-            "INSERT INTO report_images (report_id, image) VALUES (?, ?)";
+            "INSERT INTO report_images (report_id, report_image) VALUES (?, ?)";
     private static final String SELECT_BY_REPORT =
-            "SELECT image_id, report_id, image, created_at FROM report_images WHERE report_id = ? ORDER BY created_at DESC";
+            "SELECT image_id, report_id, report_image, created_at FROM report_images WHERE report_id = ? ORDER BY created_at DESC";
     private static final String DELETE_SQL =
             "DELETE FROM report_images WHERE image_id = ?";
 
-    /**
-     * Inserts a new image for a given report into the database.
-     * @param reportId ID of the report to associate
-     * @param imageInput InputStream of the image data
-     * @return generated image_id, or -1 on failure
-     */
-    public static int addReportImage(int reportId, InputStream imageInput) {
-        try (Connection conn = DBUtil.getConnection();
-             PreparedStatement ps = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
+    public static void addReportImage(Connection conn, int reportId, InputStream imageInput) throws SQLException {
+
+        try (PreparedStatement ps = conn.prepareStatement(INSERT_SQL, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, reportId);
-            ps.setBlob(2, imageInput);
+            ps.setBinaryStream(2, imageInput);
+
             int affected = ps.executeUpdate();
             if (affected > 0) {
                 try (ResultSet keys = ps.getGeneratedKeys()) {
                     if (keys.next()) {
-                        return keys.getInt(1);
+                        keys.getInt(1);
+                        return;
                     }
                 }
             }
-        } catch (SQLException e) {
-            System.err.println("Error inserting report image: " + e.getMessage());
+            throw new SQLException("Creating report image failed, no ID obtained");
         }
-        return -1;
     }
 
-    /**
-     * Retrieves all images associated with a specific report.
-     * @param reportId the report ID to filter by
-     * @return List of ReportImage objects
-     */
     public static List<ReportImage> getImagesByReportId(int reportId) {
         List<ReportImage> images = new ArrayList<>();
         try (Connection conn = DBUtil.getConnection();
@@ -70,11 +59,6 @@ public class ReportImageDAO {
         return images;
     }
 
-    /**
-     * Deletes an image by its ID.
-     * @param imageId the ID of the image to delete
-     * @return true if deletion succeeded
-     */
     public static boolean deleteReportImage(int imageId) {
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(DELETE_SQL)) {

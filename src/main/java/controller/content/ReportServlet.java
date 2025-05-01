@@ -15,8 +15,7 @@ import java.io.IOException;
 public class ReportServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/report.jsp");
-        dispatcher.forward(request, response);
+
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
@@ -24,6 +23,8 @@ public class ReportServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/report.jsp");
+        dispatcher.forward(request, response);
     }
 
 }

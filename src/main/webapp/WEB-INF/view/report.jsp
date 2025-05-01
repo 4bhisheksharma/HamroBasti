@@ -30,33 +30,23 @@
         <a href="#" class="report-new-btn">Report a new Issue</a>
 
         <dialog id="reportDialog" class="report-modal">
-            <form id="reportForm"
-                  action="uploadImage"
-                  method="post"
-                  enctype="multipart/form-data"
-                  class="modal-content">
+            <form id="reportForm" action="createReport" method="post" enctype="multipart/form-data" class="modal-content">
+                <!-- Remove the hidden reportId field -->
                 <h2>Add Report</h2>
-
-                <!-- hidden reportId (set this server-side per report) -->
-                <input type="hidden" name="reportId" value="${param.reportId}" />
 
                 <label>
                     Title:<br>
-                    <input type="text" name="title"
-                           placeholder="Enter your report title…" required>
+                    <input type="text" name="title" placeholder="Enter your report title…" required>
                 </label>
 
                 <label>
                     Description:<br>
-                    <textarea name="description"
-                              placeholder="Enter your report description…" required>
-      </textarea>
+                    <textarea name="description" placeholder="Enter your report description…" required></textarea>
                 </label>
 
                 <label>
                     Screenshot / Photo:<br>
-                    <input type="file" name="reportImage"
-                           accept="image/*" required>
+                    <input type="file" name="reportImage" accept="image/*" required>
                 </label>
 
                 <div class="modal-actions">
@@ -67,9 +57,6 @@
                         Submit
                     </button>
                 </div>
-
-                <!-- inline feedback -->
-                <div id="uploadFeedback" style="margin-top:1rem;color:#e74c3c;"></div>
             </form>
         </dialog>
 
@@ -143,30 +130,30 @@
             </div>
         </div>
 
-        <!-- Charts Section -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <div class="chart-title">Reports Overview</div>
-                <div class="chart-actions">
-                    <label for="chart-period" class="sr-only">Select time period</label>
-                    <select id="chart-period" aria-label="Select time period for chart">
-                        <option value="week">Last Week</option>
-                        <option value="month" selected>Last Month</option>
-                        <option value="quarter">Last Quarter</option>
-                        <option value="year">Last Year</option>
-                    </select>
-                </div>
-            </div>
-            <canvas id="reports-chart" height="300"></canvas>
-        </div>
+<%--        <!-- Charts Section -->--%>
+<%--        <div class="chart-container">--%>
+<%--            <div class="chart-header">--%>
+<%--                <div class="chart-title">Reports Overview</div>--%>
+<%--                <div class="chart-actions">--%>
+<%--                    <label for="chart-period" class="sr-only">Select time period</label>--%>
+<%--                    <select id="chart-period" aria-label="Select time period for chart">--%>
+<%--                        <option value="week">Last Week</option>--%>
+<%--                        <option value="month" selected>Last Month</option>--%>
+<%--                        <option value="quarter">Last Quarter</option>--%>
+<%--                        <option value="year">Last Year</option>--%>
+<%--                    </select>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <canvas id="reports-chart" height="300"></canvas>--%>
+<%--        </div>--%>
 
-        <!-- Reports by Category Chart -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <div class="chart-title">Reports by Category</div>
-            </div>
-            <canvas id="category-chart" height="300"></canvas>
-        </div>
+<%--        <!-- Reports by Category Chart -->--%>
+<%--        <div class="chart-container">--%>
+<%--            <div class="chart-header">--%>
+<%--                <div class="chart-title">Reports by Category</div>--%>
+<%--            </div>--%>
+<%--            <canvas id="category-chart" height="300"></canvas>--%>
+<%--        </div>--%>
 
         <!-- Your Reports Section -->
         <div class="reports-section">
@@ -262,37 +249,9 @@
         }
     });
 
-
     // 2. Cancel button closes
     cancelBtn.addEventListener('click', () => dialog.close());
 
-    // 3. Handle submission via Fetch
-    form.addEventListener('submit', async e => {
-        e.preventDefault();
-        feedbackEl.style.color = '#333';
-        feedbackEl.textContent = 'Uploading…';
-
-        try {
-            const resp = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form)
-            });
-            if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
-            const json = await resp.json();
-
-            if (json.success) {
-                feedbackEl.style.color = '#27ae60';
-                feedbackEl.textContent = json.message;
-                // optionally close after a delay:
-                setTimeout(() => dialog.close(), 1000);
-            } else {
-                throw new Error(json.message || 'Upload failed');
-            }
-        } catch (err) {
-            feedbackEl.style.color = '#e74c3c';
-            feedbackEl.textContent = err.message;
-        }
-    });
 </script>
 </body>
 </html>
