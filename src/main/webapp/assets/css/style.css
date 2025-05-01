@@ -762,6 +762,7 @@ reportDialog::backdrop {
     font-size: 0.8rem;
     font-weight: bold;
     background-color: white;
+    color: black;
 }
 
 .priority-critical {

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +19,7 @@
         <div class="reports-header">
             <div class="reports-title">
                 <h1>Reports</h1>
-                <p>View issues reported in the community <br>
-                    <i>For now everything here is hard coded.</i>
-                </p>
+                <p>View issues reported in the community</p>
             </div>
             <div class="reports-illustration">
                 <img src="${pageContext.request.contextPath}/assets/images/reports.png" alt="Reports illustration">
@@ -160,59 +160,31 @@
             <h2>Your <span>Reports</span></h2>
 
             <div class="reports-grid">
-                <!-- Report Card 1 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Pole-lamp Broken</div>
-                            <div class="report-card-date">Reported on: 15 Jun 2023</div>
+                <c:forEach items="${reports}" var="report">
+                    <div class="report-card">
+                        <div class="report-card-header">
+                            <div>
+                                <div class="report-card-title">${report.title}</div>
+                                <div class="report-card-date">
+                                    Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
+                                </div>
+                            </div>
+                            <div class="report-card-priority priority-${report.priority.toLowerCase()}">
+                                    ${report.priority}
+                            </div>
                         </div>
-                        <div class="report-card-priority priority-critical">Critical</div>
-                    </div>
-                    <div class="report-card-description">
-                        Lamp is broken so fix this issue as soon as possible. Thank You!
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">In Progress</div>
-                        <div class="report-card-location">Ward 5, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 2 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Drainage Blockage</div>
-                            <div class="report-card-date">Reported on: 10 Jun 2023</div>
+                        <div class="report-card-description">
+                                ${report.description}
                         </div>
-                        <div class="report-card-priority priority-medium">Medium</div>
-                    </div>
-                    <div class="report-card-description">
-                        Drainage is blocked so fix this issue as soon as possible. Thank You!
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Pending</div>
-                        <div class="report-card-location">Ward 3, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 3 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Voltage Issue</div>
-                            <div class="report-card-date">Reported on: 5 Jun 2023</div>
+                        <div class="report-card-footer">
+                            <div class="report-card-status">${report.status}</div>
+                            <div class="report-card-location">
+                                <!-- Add location field to your reports table if needed -->
+                                Ward ${report.id % 10}, Kathmandu
+                            </div>
                         </div>
-                        <div class="report-card-priority priority-normal">Normal</div>
                     </div>
-                    <div class="report-card-description">
-                        Voltage is so low in our area so fix this issue as soon as possible. Thank You!
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Resolved</div>
-                        <div class="report-card-location">Ward 7, Kathmandu</div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

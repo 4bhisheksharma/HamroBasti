@@ -1,5 +1,6 @@
 package controller.content;
 
+import dao.ReportDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import model.User;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ReportServlet", value = "/report")
 public class ReportServlet extends HttpServlet {
@@ -23,6 +26,10 @@ public class ReportServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
+        // Fetch user's reports
+        List<Map<String, Object>> reports = ReportDAO.getUserReports(user.getId());
+        request.setAttribute("reports", reports);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/report.jsp");
         dispatcher.forward(request, response);
     }
