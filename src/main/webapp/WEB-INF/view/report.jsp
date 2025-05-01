@@ -161,6 +161,7 @@
 
             <div class="reports-grid">
                 <c:forEach items="${reports}" var="report">
+                    <div class="report-card" onclick="window.location='viewReport?id=${report.id}'">
                     <div class="report-card">
                         <div class="report-card-header">
                             <div>
@@ -180,9 +181,10 @@
                             <div class="report-card-status">${report.status}</div>
                             <div class="report-card-location">
                                 <!-- Add location field to your reports table if needed -->
-                                Ward ${report.id % 10}, Kathmandu
+                                IIC 1, Morang
                             </div>
                         </div>
+                    </div>
                     </div>
                 </c:forEach>
             </div>

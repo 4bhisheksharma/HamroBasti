@@ -19,42 +19,34 @@ public class ReportImageDAO {
     private static final String DELETE_SQL =
             "DELETE FROM report_images WHERE image_id = ?";
 
-    public static void addReportImage(Connection conn, int reportId, InputStream imageInput) throws SQLException {
+    public static void addReportImage(Connection conn, int reportId, InputStream imageInput)
+            throws SQLException {
 
-        try (PreparedStatement ps = conn.prepareStatement(INSERT_SQL, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        String sql = "INSERT INTO report_images (report_id, report_image) VALUES (?, ?)";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, reportId);
             ps.setBinaryStream(2, imageInput);
-
-            int affected = ps.executeUpdate();
-            if (affected > 0) {
-                try (ResultSet keys = ps.getGeneratedKeys()) {
-                    if (keys.next()) {
-                        keys.getInt(1);
-                        return;
-                    }
-                }
-            }
-            throw new SQLException("Creating report image failed, no ID obtained");
+            ps.executeUpdate();
         }
     }
 
-    public static List<ReportImage> getImagesByReportId(int reportId) {
-        List<ReportImage> images = new ArrayList<>();
+    // Get all images for a report
+    public static List<byte[]> getImagesByReportId(int reportId) {
+        String sql = "SELECT report_image FROM report_images WHERE report_id = ?";
+        List<byte[]> images = new ArrayList<>();
+
         try (Connection conn = DBUtil.getConnection();
-             PreparedStatement ps = conn.prepareStatement(SELECT_BY_REPORT)) {
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
             ps.setInt(1, reportId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    ReportImage img = new ReportImage();
-                    img.setImageId(rs.getInt("image_id"));
-                    img.setReportId(rs.getInt("report_id"));
-                    img.setImageBytes(rs.getBytes("image"));
-                    img.setCreatedAt(rs.getTimestamp("created_at"));
-                    images.add(img);
+                    images.add(rs.getBytes("report_image"));
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error fetching report images: " + e.getMessage());
+            System.err.println("Error fetching images: " + e.getMessage());
         }
         return images;
     }
