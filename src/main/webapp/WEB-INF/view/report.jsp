@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +19,7 @@
         <div class="reports-header">
             <div class="reports-title">
                 <h1>Reports</h1>
-                <p>View issues reported in the community <br>
-                    <i>For now everything here is hard coded.</i>
-                </p>
+                <p>View issues reported in the community</p>
             </div>
             <div class="reports-illustration">
                 <img src="${pageContext.request.contextPath}/assets/images/reports.png" alt="Reports illustration">
@@ -30,33 +30,23 @@
         <a href="#" class="report-new-btn">Report a new Issue</a>
 
         <dialog id="reportDialog" class="report-modal">
-            <form id="reportForm"
-                  action="uploadImage"
-                  method="post"
-                  enctype="multipart/form-data"
-                  class="modal-content">
+            <form id="reportForm" action="createReport" method="post" enctype="multipart/form-data" class="modal-content">
+                <!-- Remove the hidden reportId field -->
                 <h2>Add Report</h2>
-
-                <!-- hidden reportId (set this server-side per report) -->
-                <input type="hidden" name="reportId" value="${param.reportId}" />
 
                 <label>
                     Title:<br>
-                    <input type="text" name="title"
-                           placeholder="Enter your report title…" required>
+                    <input type="text" name="title" placeholder="Enter your report title…" required>
                 </label>
 
                 <label>
                     Description:<br>
-                    <textarea name="description"
-                              placeholder="Enter your report description…" required>
-      </textarea>
+                    <textarea name="description" placeholder="Enter your report description…" required></textarea>
                 </label>
 
                 <label>
                     Screenshot / Photo:<br>
-                    <input type="file" name="reportImage"
-                           accept="image/*" required>
+                    <input type="file" name="reportImage" accept="image/*" required>
                 </label>
 
                 <div class="modal-actions">
@@ -67,9 +57,6 @@
                         Submit
                     </button>
                 </div>
-
-                <!-- inline feedback -->
-                <div id="uploadFeedback" style="margin-top:1rem;color:#e74c3c;"></div>
             </form>
         </dialog>
 
@@ -143,89 +130,63 @@
             </div>
         </div>
 
-        <!-- Charts Section -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <div class="chart-title">Reports Overview</div>
-                <div class="chart-actions">
-                    <label for="chart-period" class="sr-only">Select time period</label>
-                    <select id="chart-period" aria-label="Select time period for chart">
-                        <option value="week">Last Week</option>
-                        <option value="month" selected>Last Month</option>
-                        <option value="quarter">Last Quarter</option>
-                        <option value="year">Last Year</option>
-                    </select>
-                </div>
-            </div>
-            <canvas id="reports-chart" height="300"></canvas>
-        </div>
+<%--        <!-- Charts Section -->--%>
+<%--        <div class="chart-container">--%>
+<%--            <div class="chart-header">--%>
+<%--                <div class="chart-title">Reports Overview</div>--%>
+<%--                <div class="chart-actions">--%>
+<%--                    <label for="chart-period" class="sr-only">Select time period</label>--%>
+<%--                    <select id="chart-period" aria-label="Select time period for chart">--%>
+<%--                        <option value="week">Last Week</option>--%>
+<%--                        <option value="month" selected>Last Month</option>--%>
+<%--                        <option value="quarter">Last Quarter</option>--%>
+<%--                        <option value="year">Last Year</option>--%>
+<%--                    </select>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <canvas id="reports-chart" height="300"></canvas>--%>
+<%--        </div>--%>
 
-        <!-- Reports by Category Chart -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <div class="chart-title">Reports by Category</div>
-            </div>
-            <canvas id="category-chart" height="300"></canvas>
-        </div>
+<%--        <!-- Reports by Category Chart -->--%>
+<%--        <div class="chart-container">--%>
+<%--            <div class="chart-header">--%>
+<%--                <div class="chart-title">Reports by Category</div>--%>
+<%--            </div>--%>
+<%--            <canvas id="category-chart" height="300"></canvas>--%>
+<%--        </div>--%>
 
         <!-- Your Reports Section -->
         <div class="reports-section">
             <h2>Your <span>Reports</span></h2>
 
             <div class="reports-grid">
-                <!-- Report Card 1 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Pole-lamp Broken</div>
-                            <div class="report-card-date">Reported on: 15 Jun 2023</div>
+                <c:forEach items="${reports}" var="report">
+                    <div class="report-card" onclick="window.location='viewReport?id=${report.id}'">
+                    <div class="report-card">
+                        <div class="report-card-header">
+                            <div>
+                                <div class="report-card-title">${report.title}</div>
+                                <div class="report-card-date">
+                                    Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
+                                </div>
+                            </div>
+                            <div class="report-card-priority priority-${report.priority.toLowerCase()}">
+                                    ${report.priority}
+                            </div>
                         </div>
-                        <div class="report-card-priority priority-critical">Critical</div>
-                    </div>
-                    <div class="report-card-description">
-                        Lamp is broken so fix this issue as soon as possible. Thank You!
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">In Progress</div>
-                        <div class="report-card-location">Ward 5, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 2 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Drainage Blockage</div>
-                            <div class="report-card-date">Reported on: 10 Jun 2023</div>
+                        <div class="report-card-description">
+                                ${report.description}
                         </div>
-                        <div class="report-card-priority priority-medium">Medium</div>
-                    </div>
-                    <div class="report-card-description">
-                        Drainage is blocked so fix this issue as soon as possible. Thank You!
-                    </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Pending</div>
-                        <div class="report-card-location">Ward 3, Kathmandu</div>
-                    </div>
-                </div>
-
-                <!-- Report Card 3 -->
-                <div class="report-card">
-                    <div class="report-card-header">
-                        <div>
-                            <div class="report-card-title">Voltage Issue</div>
-                            <div class="report-card-date">Reported on: 5 Jun 2023</div>
+                        <div class="report-card-footer">
+                            <div class="report-card-status">${report.status}</div>
+                            <div class="report-card-location">
+                                <!-- Add location field to your reports table if needed -->
+                                IIC 1, Morang
+                            </div>
                         </div>
-                        <div class="report-card-priority priority-normal">Normal</div>
                     </div>
-                    <div class="report-card-description">
-                        Voltage is so low in our area so fix this issue as soon as possible. Thank You!
                     </div>
-                    <div class="report-card-footer">
-                        <div class="report-card-status">Resolved</div>
-                        <div class="report-card-location">Ward 7, Kathmandu</div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -262,37 +223,9 @@
         }
     });
 
-
     // 2. Cancel button closes
     cancelBtn.addEventListener('click', () => dialog.close());
 
-    // 3. Handle submission via Fetch
-    form.addEventListener('submit', async e => {
-        e.preventDefault();
-        feedbackEl.style.color = '#333';
-        feedbackEl.textContent = 'Uploading…';
-
-        try {
-            const resp = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form)
-            });
-            if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
-            const json = await resp.json();
-
-            if (json.success) {
-                feedbackEl.style.color = '#27ae60';
-                feedbackEl.textContent = json.message;
-                // optionally close after a delay:
-                setTimeout(() => dialog.close(), 1000);
-            } else {
-                throw new Error(json.message || 'Upload failed');
-            }
-        } catch (err) {
-            feedbackEl.style.color = '#e74c3c';
-            feedbackEl.textContent = err.message;
-        }
-    });
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 -- Database: hamro_basti_db
 
-CREATE DATABASE hamro_basti_db;
+CREATE DATABASE IF NOT EXISTS hamro_basti_db;
 USE hamro_basti_db;
 
 -- 1. Create roles table
