@@ -762,6 +762,7 @@ reportDialog::backdrop {
     font-size: 0.8rem;
     font-weight: bold;
     background-color: white;
+    color: black;
 }
 
 .priority-critical {
@@ -1583,4 +1584,52 @@ textarea.form-control {
     justify-content: space-between;
     font-size: 0.9rem;
     color: #666666;
+}
+
+/* View Report Page */
+.report-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.report-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.report-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.report-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Edit Form */
+.edit-report-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
 }
