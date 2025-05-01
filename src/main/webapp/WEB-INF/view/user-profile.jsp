@@ -16,6 +16,21 @@
 </nav>
 
 <div class="profile-container">
+    <%-- Add this at the top of the container --%>
+    <c:if test="${not empty param.success}">
+        <div class="alert alert-success">Profile updated successfully!</div>
+    </c:if>
+    <c:if test="${not empty param.error}">
+        <div class="alert alert-danger">
+            Error:
+            <c:choose>
+                <c:when test="${param.error == 'update_failed'}">Failed to update profile.</c:when>
+                <c:when test="${param.error == 'name_required'}">Full name is required.</c:when>
+                <c:otherwise>Unknown error occurred.</c:otherwise>
+            </c:choose>
+        </div>
+    </c:if>
+
     <div class="profile-header">
         <h2>Your Profile</h2>
     </div>
