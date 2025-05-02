@@ -31,12 +31,14 @@
                      class="avatar-preview"
                      alt="Profile Avatar"
                      id="avatarPreview">
+                <p style="color: white">${user.fullName} ▼ </p>
             </c:when>
             <c:otherwise>
                 <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"
                      class="avatar-preview"
                      alt="Default Avatar"
                      id="avatarPreview">
+                <p style="color: white">${user.fullName} ▼ </p>
             </c:otherwise>
         </c:choose>
     </a>
