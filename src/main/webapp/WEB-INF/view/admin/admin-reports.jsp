@@ -11,8 +11,6 @@
 <body>
 <div class="main-container">
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
-
-
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
