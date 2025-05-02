@@ -18,8 +18,9 @@
         <!-- Reports Header Section -->
         <div class="reports-header">
             <div class="reports-title">
-                <h1>Reports</h1>
-                <p>View issues reported in the community</p>
+                <h1>View Your <span class="highlight">Reports</span></h1>
+                <p>Explore a comprehensive list of all issues you reported within your community.
+                    View issues reported in the community</p>
             </div>
             <div class="reports-illustration">
                 <img src="${pageContext.request.contextPath}/assets/images/reports.png" alt="Reports illustration">
