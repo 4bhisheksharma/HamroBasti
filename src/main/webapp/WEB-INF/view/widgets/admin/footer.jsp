@@ -18,7 +18,6 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <a href="#">Dashboard</a>
-            <a href="#">Reports</a>
             <a href="#">Users</a>
         </div>
 

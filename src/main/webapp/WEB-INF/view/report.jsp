@@ -89,19 +89,6 @@
                 </select>
             </div>
 
-            <div class="filter-dropdown">
-                <label for="category-filter" class="sr-only">Filter by Category</label>
-                <select id="category-filter" aria-label="Filter by category">
-                    <option value="">Category</option>
-                    <option value="streetlight">Streetlight</option>
-                    <option value="road">Road</option>
-                    <option value="garbage">Garbage</option>
-                    <option value="water">Water</option>
-                    <option value="electricity">Electricity</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
             <div class="date-filter">
                 <label for="date-range" class="sr-only">Filter by Date Range</label>
                 <input type="text" id="date-range" placeholder="Select date range" aria-label="Filter by date range">
