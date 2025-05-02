@@ -25,7 +25,7 @@
         <span class="priority priority-${report.priority.toLowerCase()}">
             ${report.priority}
         </span>
-        <span class="status">Status: ${report.status}</span>
+        <span class="status">Status, ${report.status}</span>
         <span class="date">
             Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
         </span>
