@@ -11,7 +11,7 @@ import services.AuthService;
 
 import java.io.IOException;
 
-@WebServlet(name = "AdminDashboardServlet", urlPatterns = {"/admin/dashboard"})
+@WebServlet(name = "AdminDashboardServlet", urlPatterns = {"/admin/dashboardd"})
 public class AdminDashboardServlet extends HttpServlet {
 
     @Override

@@ -1,16 +1,13 @@
 package dao;
 
+import model.Priority;
+import model.ReportStatus;
 import utils.DBUtil;
-
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReportDAO {
     private static final String INSERT_SQL =
@@ -125,15 +122,138 @@ public class ReportDAO {
     // Delete report
     public static boolean deleteReport(int reportId) {
         String sql = "DELETE FROM reports WHERE report_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, reportId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error deleting report: " + e.getMessage());
+            e.printStackTrace(); // Log the error
+            return false;
+        }
+    }
+
+    public static List<Map<String, Object>> getAllReportsWithUserInfo() throws SQLException {
+        String sql = "SELECT r.*, u.full_name AS userFullName, p.label AS priority, s.label AS status "
+                + "FROM reports r "
+                + "JOIN users u ON r.user_id = u.user_id "
+                + "JOIN priorities p ON r.priority_id = p.priority_id "
+                + "JOIN report_status s ON r.status_id = s.status_id "
+                + "ORDER BY r.created_at DESC";
+
+        List<Map<String, Object>> reports = new ArrayList<>();
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Map<String, Object> report = new HashMap<>();
+                report.put("reportId", rs.getInt("report_id"));
+                report.put("title", rs.getString("title"));
+                report.put("description", rs.getString("description"));
+                report.put("userFullName", rs.getString("userFullName"));
+                report.put("statusId", rs.getInt("status_id"));
+                report.put("priorityId", rs.getInt("priority_id"));
+                report.put("images", getReportImages(rs.getInt("report_id")));
+                reports.add(report);
+            }
+        }
+        return reports;
+    }
+
+    public static List<String> getReportImages(int reportId) {
+        String sql = "SELECT report_image FROM report_images WHERE report_id = ?";
+        List<String> images = new ArrayList<>();
 
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, reportId);
-            return ps.executeUpdate() > 0;
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                byte[] imageBytes = rs.getBytes("report_image");
+                images.add(Base64.getEncoder().encodeToString(imageBytes));
+            }
         } catch (SQLException e) {
-            System.err.println("Error deleting report: " + e.getMessage());
-            return false;
+            e.printStackTrace();
         }
+        return images;
+    }
+
+    public static Map<String, Integer> getStatusCounts() throws SQLException {
+        String sql = "SELECT s.label, COUNT(*) as count "
+                + "FROM reports r "
+                + "JOIN report_status s ON r.status_id = s.status_id "
+                + "GROUP BY s.label";
+
+        Map<String, Integer> counts = new HashMap<>();
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                counts.put(rs.getString("label"), rs.getInt("count"));
+            }
+        }
+        return counts;
+    }
+
+    public static void updateReportStatus(int reportId, int statusId) throws SQLException {
+        String sql = "UPDATE reports SET status_id = ? WHERE report_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, statusId);
+            ps.setInt(2, reportId);
+            ps.executeUpdate();
+        }
+    }
+
+    public static void updateReportPriority(int reportId, int priorityId) throws SQLException {
+        String sql = "UPDATE reports SET priority_id = ? WHERE report_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, priorityId);
+            ps.setInt(2, reportId);
+            ps.executeUpdate();
+        }
+    }
+
+    // In ReportDAO.java
+    public static List<ReportStatus> getAllStatuses() throws SQLException {
+        String sql = "SELECT * FROM report_status";
+        List<ReportStatus> statuses = new ArrayList<>();
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ReportStatus status = new ReportStatus();
+                status.setStatusId(rs.getInt("status_id"));
+                status.setLabel(rs.getString("label"));
+                statuses.add(status);
+            }
+        }
+        return statuses;
+    }
+
+    public static List<Priority> getAllPriorities() throws SQLException {
+        String sql = "SELECT * FROM priorities";
+        List<Priority> priorities = new ArrayList<>();
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Priority priority = new Priority();
+                priority.setPriorityId(rs.getInt("priority_id"));
+                priority.setLabel(rs.getString("label"));
+                priorities.add(priority);
+            }
+        }
+        return priorities;
     }
 }

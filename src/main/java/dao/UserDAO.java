@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -107,5 +109,43 @@ public class UserDAO {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    // Get all users
+    public static List<User> getAllUsers() throws SQLException {
+        String sql = "SELECT user_id, full_name, email, role_id, created_at, bio, user_profile FROM users";
+        List<User> users = new ArrayList<>();
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("user_id"));
+                user.setFullName(rs.getString("full_name"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                user.setCreated_at(rs.getTimestamp("created_at"));
+                user.setBio(rs.getString("bio"));
+                user.setUserImage(rs.getBytes("user_profile"));
+                users.add(user);
+            }
+        }
+        return users;
+    }
+
+    // Delete user
+    public static boolean deleteUser(int userId) {
+        String sql = "DELETE FROM users WHERE user_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error deleting user: " + e.getMessage());
+            return false;
+        }
     }
 }
