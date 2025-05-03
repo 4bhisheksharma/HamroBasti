@@ -53,7 +53,7 @@ CREATE TABLE reports (
 CREATE TABLE report_images (
                                image_id INT AUTO_INCREMENT PRIMARY KEY,
                                report_id INT NOT NULL,
-                               image MEDIUMBLOB,
+                               report_image MEDIUMBLOB,
                                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                FOREIGN KEY (report_id) REFERENCES reports(report_id) ON DELETE CASCADE
 );
