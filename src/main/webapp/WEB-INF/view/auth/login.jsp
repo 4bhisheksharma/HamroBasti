@@ -51,7 +51,7 @@
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember">Remember me</label>
                     </div>
-                    <a href="forgot-password.jsp" class="forgot-password">Forgot password?</a>
+                    <a href="#" class="forgot-password">Forgot password?</a>
                 </div>
 
                 <button type="submit" class="btn auth-btn">Log In</button>
@@ -59,17 +59,6 @@
                 <div class="auth-divider">
                     <span>OR</span>
                 </div>
-
-<%--                <div class="social-login">--%>
-<%--                    <button type="button" class="social-btn google-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/google-icon.png" alt="Google">--%>
-<%--                        <span>Continue with Google</span>--%>
-<%--                    </button>--%>
-<%--                    <button type="button" class="social-btn facebook-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/facebook-icon.png" alt="Facebook">--%>
-<%--                        <span>Continue with Facebook</span>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
 
                 <div class="auth-footer">
                     <p>Don't have an account? <a href="${pageContext.request.contextPath}/register" class="highlight">Sign up</a></p>

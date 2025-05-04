@@ -61,7 +61,7 @@ public class ReportDAO {
         return reports;
     }
 
-    // Get single report with priority and status
+    // Get a single report with priority and status
     public static Map<String, Object> getReportById(int reportId) {
         String sql = "SELECT r.*, p.label AS priority, s.label AS status " +
                 "FROM reports r " +
