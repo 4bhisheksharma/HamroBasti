@@ -18,16 +18,17 @@
     </style>
 </head>
 <body>
-<div class="main-container">
+<nav>
     <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
-
+</nav>
+<div class="main-container">
     <div class="content">
         <div class="header">
             <h1>Admin Dashboard</h1>
             <div class="user-info">
                 Hello, Administrator
                 <div class="profile-icon">
-                    <a href="${pageContext.request.contextPath}/admin/profile">  <span>A</span></a>
+                    <a href="${pageContext.request.contextPath}/admin/profile" style="text-decoration: none">  <span style="color: white">A</span></a>
                 </div>
             </div>
         </div>
@@ -54,7 +55,7 @@
                 <c:forEach items="${allReports}" var="report">
                     <div class="report-card">
                         <div class="report-info">
-                            <h3>${report.title}
+                            <h3>${report.title}<br>
                                 <span class="report-meta">Reported by: ${report.userFullName}</span>
                             </h3>
                             <p>${report.description}</p>
@@ -102,8 +103,9 @@
         </div>
     </div>
 </div>
-
-<%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
+<footer style="z-index: 1000;">
+    <%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
+</footer>
 
 <script>
     window.onclick = function(event) {
