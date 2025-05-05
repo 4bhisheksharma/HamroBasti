@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: PC
@@ -27,7 +28,11 @@
                 <h1>Log <span class="highlight">In</span></h1>
                 <p>Enter your credentials to access your account</p>
             </div>
-
+            <c:if test="${not empty error}">
+                <div class="auth-error-alert">
+                        ${error}
+                </div>
+            </c:if>
             <form id="login-form" class="auth-form" action="${pageContext.request.contextPath}/login" method="post">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -51,7 +56,7 @@
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember">Remember me</label>
                     </div>
-                    <a href="forgot-password.jsp" class="forgot-password">Forgot password?</a>
+                    <a href="#" class="forgot-password">Forgot password?</a>
                 </div>
 
                 <button type="submit" class="btn auth-btn">Log In</button>
@@ -60,17 +65,6 @@
                     <span>OR</span>
                 </div>
 
-<%--                <div class="social-login">--%>
-<%--                    <button type="button" class="social-btn google-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/google-icon.png" alt="Google">--%>
-<%--                        <span>Continue with Google</span>--%>
-<%--                    </button>--%>
-<%--                    <button type="button" class="social-btn facebook-btn">--%>
-<%--                        <img src="${pageContext.request.contextPath}/assets/images/facebook-icon.png" alt="Facebook">--%>
-<%--                        <span>Continue with Facebook</span>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-
                 <div class="auth-footer">
                     <p>Don't have an account? <a href="${pageContext.request.contextPath}/register" class="highlight">Sign up</a></p>
                 </div>
@@ -78,5 +72,6 @@
         </div>
     </div>
 </main>
+<script src="${pageContext.request.contextPath}/assets/scripts/auth.js"></script>
 </body>
 </html>
