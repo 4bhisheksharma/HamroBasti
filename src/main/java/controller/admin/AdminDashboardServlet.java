@@ -17,7 +17,7 @@ public class AdminDashboardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Forward to dashboard page
+        // Forward to the dashboard page
         request.getRequestDispatcher("/WEB-INF/view/admin/admin-dashboard.jsp").forward(request, response);
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

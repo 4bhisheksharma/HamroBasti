@@ -15,7 +15,7 @@ public class AdminProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Forward to dashboard page
+        // Forward to the admin profile page
         request.getRequestDispatcher("/WEB-INF/view/admin/admin-profile.jsp").forward(request, response);
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
