@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-    --primary-color: #7b5cff;
+    --primary-color: #cc0d17;
     --secondary-color: #f5f5f5;
     --text-color: #333333;
     --light-text: #ffffff;
@@ -115,6 +115,14 @@ img {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(123, 92, 255, 0.3);
     color: var(--light-text);
+}
+
+.btn-outline-del {
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 section {

@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn-save">Save Changes</button>
+            <button type="submit" class="btn-outline">Save Changes</button>
             <a href="viewReport?id=${report.id}" class="btn-cancel">Cancel</a>
         </div>
     </form>

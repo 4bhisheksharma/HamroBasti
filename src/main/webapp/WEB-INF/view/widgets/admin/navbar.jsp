@@ -16,9 +16,9 @@
         <p>Admin Panel</p>
     </div>
     <div class="sidebar-menu">
-       <a href="${pageContext.request.contextPath}/admin/dashboard"> <div class="menu-item">Dashboard</div></a>
-<%--       <a href="${pageContext.request.contextPath}/admin/reports"> <div class="menu-item">Reports</div></a>--%>
-        <a href="${pageContext.request.contextPath}/admin/users"> <div class="menu-item">Users</div></a>
+       <a href="${pageContext.request.contextPath}/admin/dashboard"> <div class="menu-item">Dashboard 🏡</div></a>
+        <a href="${pageContext.request.contextPath}/admin/users"> <div class="menu-item">Users 👥</div></a>
+        <a href="${pageContext.request.contextPath}/admin/profile"> <div class="menu-item">Profile 👤</div></a>
         <a href="${pageContext.request.contextPath}/logout" > <div class="menu-item">Logout 📤</div></a>
     </div>
 </div>
