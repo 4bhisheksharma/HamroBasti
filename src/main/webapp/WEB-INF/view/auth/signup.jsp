@@ -68,9 +68,8 @@
                 </div>
             </form>
         </div>
-
     </div>
-
 </main>
+<script src="${pageContext.request.contextPath}/assets/scripts/auth.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: PC
@@ -27,7 +28,11 @@
                 <h1>Log <span class="highlight">In</span></h1>
                 <p>Enter your credentials to access your account</p>
             </div>
-
+            <c:if test="${not empty error}">
+                <div class="auth-error-alert">
+                        ${error}
+                </div>
+            </c:if>
             <form id="login-form" class="auth-form" action="${pageContext.request.contextPath}/login" method="post">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -67,5 +72,6 @@
         </div>
     </div>
 </main>
+<script src="${pageContext.request.contextPath}/assets/scripts/auth.js"></script>
 </body>
 </html>

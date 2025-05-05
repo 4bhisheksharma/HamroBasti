@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("user_id", user.getId());
             session.setAttribute("isLoggedIn", true);
+            request.setAttribute("error", "Invalid email or password");
 
             // Log the login activity
             String userType = "User";

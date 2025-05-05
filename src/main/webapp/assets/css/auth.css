@@ -12,6 +12,15 @@
     min-height: 600px;
 }
 
+.auth-error-alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+}
+
 /* Left Side - Image Section */
 .auth-image {
     flex: 1;
