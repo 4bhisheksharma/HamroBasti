@@ -48,7 +48,7 @@
         <a href="editReport?id=${report.id}" class="btn-edit">Edit Report</a>
         <form action="deleteReport" method="post" class="delete-form">
             <input type="hidden" name="id" value="${report.id}">
-            <button type="submit" class="btn-delete">Delete Report</button>
+            <button type="submit" class=btn-outline-del">Delete Report</button>
         </form>
     </div>
 

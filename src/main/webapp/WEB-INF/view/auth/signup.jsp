@@ -62,11 +62,17 @@
                     <span>OR</span>
                 </div>
 
-
                 <div class="auth-footer">
                     <p>Already have an account? <a href="${pageContext.request.contextPath}/login" class="highlight">Sign in</a></p>
                 </div>
             </form>
+            <div class="alert alert-success" id="registration-success" style="display: none;">
+                Registration successful! Redirecting to login...
+            </div>
+
+            <div class="alert alert-danger" id="email-exists-error" style="display: none;">
+                Email already exists. Please use a different email.
+            </div>
         </div>
     </div>
 </main>
