@@ -33,26 +33,26 @@ Hamro-Basti is a web-based application designed to facilitate the reporting and 
    git clone https://github.com/4bhisheksharma/HamroBasti.git
    cd HamroBasti
 
-### Usage
+
 ## User Roles
 1. Citizen:
-- Register/log in, create/edit/delete reports, upload images, and manage profiles.
+   - Register/log in, create/edit/delete reports, upload images, and manage profiles.
 
 2. Admin:
-- Access dashboard to manage reports (update status/priority) and user accounts.
+   - Access dashboard to manage reports (update status/priority) and user accounts.
 
 3. Key Pages
-- Landing Page: /landing-page (public)
-- Login/Register: /login, /register
-- Dashboard: /home (authenticated users)
+   - Landing Page: /landing-page (public)
+   - Login/Register: /login, /register
+   - Dashboard: /home (authenticated users)
 
 4. Report Management:
-- Create: /createReport
-- View/Edit/Delete: /report, /editReport, /deleteReport
-- Admin Dashboard: /admin/dashboard (admin-only)
+   - Create: /createReport
+   - View/Edit/Delete: /report, /editReport, /deleteReport
+   - Admin Dashboard: /admin/dashboard (admin-only)
 
 ### Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+Contributions are welcome! Please fork the repository, make a new branch, and submit a pull request with your changes.
 
 ### License
 This project is open-source and available under the MIT License.
