@@ -1,4 +1,3 @@
-<jsp:useBean id="user" scope="request" type="model.User"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,7 +11,7 @@
 </head>
 <body>
 <nav>
-    <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>
+<%--    <%@include file="/WEB-INF/view/widgets/admin/navbar.jsp" %>--%>
 </nav>
 <%--TODO: fix this all--%>
 <div class="profile-container">
@@ -101,12 +100,13 @@
             </div>
 
             <button type="submit" class="btn-save">Save Changes</button>
+            <a href="${pageContext.request.contextPath}/admin/dashboard" class="btn-save">Go To Dashboard</a>
         </form>
     </div>
 </div>
 
 <footer>
-    <%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>
+<%--    <%@include file="/WEB-INF/view/widgets/admin/footer.jsp" %>--%>
 </footer>
 
 <script>

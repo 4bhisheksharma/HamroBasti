@@ -117,6 +117,14 @@ img {
     color: var(--light-text);
 }
 
+.btn-outline-del {
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 section {
     padding: 80px 0;
 }
@@ -524,8 +532,8 @@ reportDialog::backdrop {
 
 /* Modal inner box */
 .modal-content {
-    background: var(--primary-light);
-    color: var(--text-light);
+    background: var(--primary-color);
+    color: var(--text-color);
     padding: 2rem;
     display: grid;
     gap: 1rem;
@@ -554,8 +562,8 @@ reportDialog::backdrop {
     border-top: 1px solid rgba(255,255,255,0.3);
 }
 .btn-primary {
-    background: var(--text-light);
-    color: var(--primary-light);
+    background: var(--text-color);
+    color: var(--primary-color);
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border: none;
@@ -563,9 +571,9 @@ reportDialog::backdrop {
 }
 .btn-outline {
     background: transparent;
-    color: var(--text-light);
+    color: var(--text-color);
     padding: 0.5rem 1rem;
-    border: 1px solid var(--text-light);
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     cursor: pointer;
 }

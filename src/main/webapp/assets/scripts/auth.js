@@ -124,4 +124,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }`;
         });
     });
+
+    // Registration Success Handler
+    if (window.location.search.includes('success=registered')) {
+        const successElement = document.getElementById('registration-success');
+        successElement.style.display = 'block';
+        setTimeout(() => {
+            window.location.href = `${pageContext.request.contextPath}/login`;
+        }, 2000);
+    }
+
+// Duplicate Email Error Handler (Server-Driven)
+    if (window.location.search.includes('error=email_exists')) {
+        const errorElement = document.getElementById('email-exists-error');
+        errorElement.style.display = 'block';
+    }
+
+// Login Success Handler
+    if (window.location.search.includes('success=login')) {
+        const successElement = document.getElementById('login-success');
+        successElement.style.display = 'block';
+        setTimeout(() => {
+            window.location.href = `${pageContext.request.contextPath}/dashboard`;
+        }, 2000);
+    }
+    
 });

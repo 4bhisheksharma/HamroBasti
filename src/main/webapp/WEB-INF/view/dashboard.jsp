@@ -63,7 +63,7 @@
     <section class="community">
         <div class="container">
             <h2>Join Our <span class="highlight">Community</span></h2>
-            <p>Together through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
+            <p>Together, through the Hamro-Basti app, we can all work to make our communities safer and cleaner. Start today!</p>
             <div class="cta-buttons">
 <%--                <a href="${pageContext.request.contextPath}/view/signup.jsp" class="btn">Register Now</a>--%>
                 <a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp" class="btn-outline">Learn More</a>
