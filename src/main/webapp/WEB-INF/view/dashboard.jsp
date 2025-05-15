@@ -27,38 +27,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2>Key <span class="highlight">Features</span></h2>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/icons/report_icon.png" alt="Report icon">
-                    </div>
-                    <h3>Local Issue Reporting</h3>
-                    <p>Report hyper-specific issues like vandalism, stray animals, garbage, broken streetlights, and damaged roads</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/icons/image_icon.png" alt="Image icon">
-                    </div>
-                    <h3>Image-Based Reporting</h3>
-                    <p>Report hyper-specific issues like stray animals, garbage, broken streetlights, and damaged roads with images</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="${pageContext.request.contextPath}/assets/icons/update_icon.png" alt="Update icon">
-                    </div>
-                    <h3>Progress Updates</h3>
-                    <p>Track report status and receive notifications when reported authorities update progress and resolve issues</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Community Section -->
     <section class="community">
         <div class="container">

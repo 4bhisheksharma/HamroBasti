@@ -165,7 +165,7 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 Hamro-Basti. All rights reserved.</p>
-        <p>V: 1.1(Abhishek branch)</p>
+        <p>V: 1.1</p>
     </div>
 </footer>
 </body>
