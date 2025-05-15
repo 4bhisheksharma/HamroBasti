@@ -562,7 +562,7 @@ reportDialog::backdrop {
     border-top: 1px solid rgba(255,255,255,0.3);
 }
 .btn-primary {
-    background: var(--text-color);
+    background: white;
     color: var(--primary-color);
     padding: 0.5rem 1rem;
     border-radius: 5px;
