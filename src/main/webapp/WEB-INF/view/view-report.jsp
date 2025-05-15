@@ -23,16 +23,16 @@
 
     <div class="report-meta">
         <span class="priority priority-${report.priority.toLowerCase()}">
-            ${report.priority}
+            Priority: ${report.priority},
         </span>
-        <span class="status">Status, ${report.status}</span>
+        <span class="status">Status: ${report.status},</span>
         <span class="date">
             Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
         </span>
     </div>
 
     <div class="report-content">
-        <p>${report.description}</p>
+        <p>Desc: ${report.description}</p>
 
         <div class="report-images">
             <c:forEach items="${images}" var="image">
