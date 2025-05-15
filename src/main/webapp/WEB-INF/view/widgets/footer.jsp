@@ -20,8 +20,8 @@
             <ul>
                 <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/report">Report</a></li>
-                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/about.jsp">AboutUs</a></li>
-                <li><a href="${pageContext.request.contextPath}/WEB-INF/view/contact.jsp">ContactUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/about">AboutUs</a></li>
+                <li><a href="${pageContext.request.contextPath}/contact">ContactUs</a></li>
 
             </ul>
         </div>

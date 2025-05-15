@@ -1,188 +1,212 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reports - Hamro-Basti</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <style>
+        /* --- stats cards --- */
+        .dashboard-section { display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+        .dashboard-card {
+            flex: 1; min-width: 150px;
+            background: #fff; padding: 1rem 1.5rem;
+            border-radius: 8px; text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .dashboard-card h3 { margin-bottom: .5rem; color: #333; }
+        .dashboard-card .number { font-size: 2rem; font-weight: bold; color: #7b5cff; }
+        /* --- search & filters --- */
+        .filter-section { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .filter-section input, .filter-section select {
+            padding: .5rem 1rem; border-radius: 5px; border: 1px solid #ccc;
+            font-size: 1rem; flex: 1;
+        }
+        /* --- cards grid --- */
+        .reports-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1rem; }
+        .report-card {
+            background: #fff; padding: 1rem; border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            cursor: pointer; display: flex; flex-direction: column;
+            transition: transform .2s;
+        }
+        .report-card:hover { transform: translateY(-3px); }
+        .report-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: .75rem; }
+        .report-card-title { font-weight: 600; color: #333; }
+        .report-card-date { font-size: .9rem; color: #666; }
+        .priority-submitted { background: #f39c12; color: #fff; padding: 2px 8px; border-radius:4px; font-size:.8rem; }
+        .priority-in\ progress { /* class name with space must be escaped */ }
+        .priority-in-progress { background: #3498db; color: #fff; padding:2px 8px; border-radius:4px; font-size:.8rem; }
+        .priority-completed { background: #2ecc71; color: #fff; padding:2px 8px; border-radius:4px; font-size:.8rem; }
+        .report-card-description { flex:1; color:#555; margin-bottom: .75rem; }
+        .report-card-footer { font-size:.9rem; color:#444; display:flex; justify-content:space-between; }
+    </style>
 </head>
 <body>
 <nav>
-    <%@include file="/WEB-INF/view/widgets/navbar.jsp" %>
+    <%@ include file="/WEB-INF/view/widgets/navbar.jsp" %>
 </nav>
+
 <main>
+    <br>
+    <!-- Report New Issue Button -->
+    <a href="#" class="report-new-btn" style="margin-left: 5rem">Report a new Issue</a>
+
+    <dialog id="reportDialog" class="report-modal">
+        <form id="reportForm" action="createReport" method="post" enctype="multipart/form-data" class="modal-content">
+            <!-- Remove the hidden reportId field -->
+            <h2>Add Report</h2>
+
+            <label>
+                Title:<br>
+                <input type="text" name="title" placeholder="Enter your report title…" required>
+            </label>
+
+            <label>
+                Description:<br>
+                <textarea name="description" placeholder="Enter your report description…" required></textarea>
+            </label>
+
+            <label>
+                Screenshot / Photo:<br>
+                <input type="file" name="reportImage" accept="image/*" required>
+            </label>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-outline" id="cancelBtn">
+                    Cancel
+                </button>
+                <button type="submit" class="btn-primary">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </dialog>
     <div class="reports-container">
-        <!-- Reports Header Section -->
-        <div class="reports-header">
-            <div class="reports-title">
-                <h1>View Your <span class="highlight">Reports</span></h1>
-                <p>Explore a comprehensive list of all issues you reported within your community.
-                    View issues reported in the community</p>
-            </div>
-            <div class="reports-illustration">
-                <img src="${pageContext.request.contextPath}/assets/images/reports.png" alt="Reports illustration">
-            </div>
-        </div>
 
-        <!-- Report New Issue Button -->
-        <a href="#" class="report-new-btn">Report a new Issue</a>
+        <!-- 1) Compute counts -->
+        <c:set var="totalReports" value="${fn:length(reports)}" />
+        <c:set var="submittedCount" value="0" />
+        <c:set var="inProgressCount" value="0" />
+        <c:set var="completedCount" value="0" />
+        <c:forEach var="r" items="${reports}">
+            <c:choose>
+                <c:when test="${r.status == 'Submitted'}">
+                    <c:set var="submittedCount" value="${submittedCount + 1}" />
+                </c:when>
+                <c:when test="${r.status == 'In Progress'}">
+                    <c:set var="inProgressCount" value="${inProgressCount + 1}" />
+                </c:when>
+                <c:when test="${r.status == 'Completed'}">
+                    <c:set var="completedCount" value="${completedCount + 1}" />
+                </c:when>
+            </c:choose>
+        </c:forEach>
 
-        <dialog id="reportDialog" class="report-modal">
-            <form id="reportForm" action="createReport" method="post" enctype="multipart/form-data" class="modal-content">
-                <!-- Remove the hidden reportId field -->
-                <h2>Add Report</h2>
-
-                <label>
-                    Title:<br>
-                    <input type="text" name="title" placeholder="Enter your report title…" required>
-                </label>
-
-                <label>
-                    Description:<br>
-                    <textarea name="description" placeholder="Enter your report description…" required></textarea>
-                </label>
-
-                <label>
-                    Screenshot / Photo:<br>
-                    <input type="file" name="reportImage" accept="image/*" required>
-                </label>
-
-                <div class="modal-actions">
-                    <button type="button" class="btn-outline" id="cancelBtn">
-                        Cancel
-                    </button>
-                    <button type="submit" class="btn-primary">
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </dialog>
-
-
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <div class="search-box">
-                <label for="search-reports" class="sr-only">Search Reports</label>
-                <input type="text" id="search-reports" placeholder="Search Reports..." aria-label="Search reports">
-            </div>
-
-            <div class="filter-dropdown">
-                <label for="priority-filter" class="sr-only">Filter by Priority</label>
-                <select id="priority-filter" aria-label="Filter by priority">
-                    <option value="">Priority</option>
-                    <option value="critical">Critical</option>
-                    <option value="medium">Medium</option>
-                    <option value="normal">Normal</option>
-                </select>
-            </div>
-
-            <div class="filter-dropdown">
-                <label for="status-filter" class="sr-only">Filter by Status</label>
-                <select id="status-filter" aria-label="Filter by status">
-                    <option value="">Status</option>
-                    <option value="pending">Pending</option>
-                    <option value="in-progress">In Progress</option>
-                    <option value="resolved">Resolved</option>
-                </select>
-            </div>
-
-            <div class="date-filter">
-                <label for="date-range" class="sr-only">Filter by Date Range</label>
-                <input type="text" id="date-range" placeholder="Select date range" aria-label="Filter by date range">
-            </div>
-        </div>
-
-        <!-- Dashboard Section -->
+        <!-- 2) Stats Cards -->
         <div class="dashboard-section">
             <div class="dashboard-card">
                 <h3>Total Reports</h3>
-                <div class="number">124</div>
+                <div class="number">${totalReports}</div>
             </div>
-
             <div class="dashboard-card">
-                <h3>Pending</h3>
-                <div class="number">45</div>
+                <h3>Pending (Submitted)</h3>
+                <div class="number">${submittedCount}</div>
             </div>
-
             <div class="dashboard-card">
                 <h3>In Progress</h3>
-                <div class="number">38</div>
+                <div class="number">${inProgressCount}</div>
             </div>
-
             <div class="dashboard-card">
-                <h3>Resolved</h3>
-                <div class="number">41</div>
+                <h3>Resolved (Completed)</h3>
+                <div class="number">${completedCount}</div>
             </div>
         </div>
 
-<%--        <!-- Charts Section -->--%>
-<%--        <div class="chart-container">--%>
-<%--            <div class="chart-header">--%>
-<%--                <div class="chart-title">Reports Overview</div>--%>
-<%--                <div class="chart-actions">--%>
-<%--                    <label for="chart-period" class="sr-only">Select time period</label>--%>
-<%--                    <select id="chart-period" aria-label="Select time period for chart">--%>
-<%--                        <option value="week">Last Week</option>--%>
-<%--                        <option value="month" selected>Last Month</option>--%>
-<%--                        <option value="quarter">Last Quarter</option>--%>
-<%--                        <option value="year">Last Year</option>--%>
-<%--                    </select>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <canvas id="reports-chart" height="300"></canvas>--%>
-<%--        </div>--%>
+        <!-- 3) Search & Filter -->
+        <div class="filter-section">
+            <input type="text" id="searchReports" placeholder="🔍 Search reports..." />
+            <select id="priorityFilter">
+                <option value="">All Priorities</option>
+                <option value="Critical">Critical</option>
+                <option value="Medium">Medium</option>
+                <option value="Normal">Normal</option>
+            </select>
+            <select id="statusFilter">
+                <option value="">All Statuses</option>
+                <option value="Submitted">Submitted</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
 
-<%--        <!-- Reports by Category Chart -->--%>
-<%--        <div class="chart-container">--%>
-<%--            <div class="chart-header">--%>
-<%--                <div class="chart-title">Reports by Category</div>--%>
-<%--            </div>--%>
-<%--            <canvas id="category-chart" height="300"></canvas>--%>
-<%--        </div>--%>
-
-        <!-- Your Reports Section -->
+        <!-- 4) Reports Grid -->
         <div class="reports-section">
-            <h2>Your <span>Reports</span></h2>
-
-            <div class="reports-grid">
+            <h2>Your <span style="color:#7b5cff">Reports</span></h2>
+            <div id="reportsGrid" class="reports-grid">
                 <c:forEach items="${reports}" var="report">
-                    <div class="report-card" onclick="window.location='viewReport?id=${report.id}'">
-                    <div class="report-card">
+                    <div class="report-card"
+                         data-title="${fn:toLowerCase(report.title)}"
+                         data-desc="${fn:toLowerCase(report.description)}"
+                         data-priority="${report.priority}"
+                         data-status="${report.status}"
+                         onclick="location='viewReport?id=${report.id}'">
                         <div class="report-card-header">
                             <div>
                                 <div class="report-card-title">${report.title}</div>
                                 <div class="report-card-date">
-                                    Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
+                                    <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
                                 </div>
                             </div>
-                            <div class="report-card-priority priority-${report.priority.toLowerCase()}">
-                                    ${report.priority}
+                            <div class="priority-${report.status.toLowerCase().replace(' ', '-')}">
+                                    ${report.status}
                             </div>
                         </div>
-                        <div class="report-card-description">
-                                ${report.description}
-                        </div>
+                        <div class="report-card-description">${report.description}</div>
                         <div class="report-card-footer">
-                            <div class="report-card-status">${report.status}</div>
-                            <div class="report-card-location">
-                                <!-- Add location field to your reports table if needed -->
-                                IIC 1, Morang
-                            </div>
+                            <div>Priority: ${report.priority}</div>
                         </div>
-                    </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </div>
 </main>
+
 <footer>
-    <%@include file="/WEB-INF/view/widgets/footer.jsp" %>
+    <%@ include file="/WEB-INF/view/widgets/footer.jsp" %>
 </footer>
+
 <script>
+    const searchInput    = document.getElementById('searchReports');
+    const priorityFilter = document.getElementById('priorityFilter');
+    const statusFilter   = document.getElementById('statusFilter');
+    const cards          = document.querySelectorAll('#reportsGrid .report-card');
+
+    function filterCards() {
+        const term     = searchInput.value.trim().toLowerCase();
+        const prio     = priorityFilter.value;
+        const status   = statusFilter.value;
+
+        cards.forEach(card => {
+            const title    = card.dataset.title;
+            const desc     = card.dataset.desc;
+            const cardPrio = card.dataset.priority;
+            const cardSt   = card.dataset.status;
+
+            const matchesSearch = !term || title.includes(term) || desc.includes(term);
+            const matchesPrio   = !prio || cardPrio === prio;
+            const matchesSt     = !status || cardSt === status;
+
+            card.style.display = (matchesSearch && matchesPrio && matchesSt)
+                ? 'flex' : 'none';
+        });
+    }
     const btn  = document.querySelector('.report-new-btn');
     const dialog = document.getElementById('reportDialog');
     const openBtn    = document.querySelector('.report-new-btn');
@@ -214,6 +238,8 @@
     // 2. Cancel button closes
     cancelBtn.addEventListener('click', () => dialog.close());
 
+    [searchInput, priorityFilter, statusFilter]
+        .forEach(el => el.addEventListener('input', filterCards));
 </script>
 </body>
 </html>

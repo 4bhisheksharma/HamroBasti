@@ -23,16 +23,16 @@
 
     <div class="report-meta">
         <span class="priority priority-${report.priority.toLowerCase()}">
-            ${report.priority}
+            Priority: ${report.priority},
         </span>
-        <span class="status">Status, ${report.status}</span>
+        <span class="status">Status: ${report.status},</span>
         <span class="date">
             Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
         </span>
     </div>
 
     <div class="report-content">
-        <p>${report.description}</p>
+        <p>Desc: ${report.description}</p>
 
         <div class="report-images">
             <c:forEach items="${images}" var="image">
@@ -48,7 +48,7 @@
         <a href="editReport?id=${report.id}" class="btn-edit">Edit Report</a>
         <form action="deleteReport" method="post" class="delete-form">
             <input type="hidden" name="id" value="${report.id}">
-            <button type="submit" class=btn-outline-del">Delete Report</button>
+            <button type="submit" class="btn-outline-del">Delete Report</button>
         </form>
     </div>
 

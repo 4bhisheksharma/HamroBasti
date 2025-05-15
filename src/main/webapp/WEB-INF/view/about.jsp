@@ -91,8 +91,7 @@
             <p>Be part of the solution. Join <a href="signup.jsp">Hamro-Basti</a> today and help make your community safer, cleaner, and more responsive.</p>
 
             <div class="cta-buttons">
-                <a href="register.jsp" class="btn">Register Now</a>
-                <a href="contact.jsp" class="btn-outline">Contact Us</a>
+                <a href="${pageContext.request.contextPath}/contact" class="btn-outline">Contact Us</a>
             </div>
         </div>
 
