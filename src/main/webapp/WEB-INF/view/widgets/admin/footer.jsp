@@ -17,8 +17,8 @@
 
         <div class="footer-section">
             <h3>Quick Links</h3>
-            <a href="#">Dashboard</a>
-            <a href="#">Users</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard">Dashboard</a>
+            <a href="${pageContext.request.contextPath}/admin/users">Users</a>
         </div>
 
         <div class="footer-section">
