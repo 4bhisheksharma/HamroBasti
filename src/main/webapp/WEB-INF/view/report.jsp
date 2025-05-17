@@ -138,7 +138,7 @@
                 <option value="Normal">Normal</option>
             </select>
             <select id="statusFilter">
-                <option value="">All Statuses</option>
+                <option value="">All Status</option>
                 <option value="Submitted">Submitted</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
