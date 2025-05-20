@@ -29,6 +29,19 @@ public class LogoutServlet extends HttpServlet {
             session.invalidate();
         }
 
+        // Clear cookies
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("user_email") || cookie.getName().equals("user_id")) {
+                    cookie.setValue("");
+                    cookie.setMaxAge(0); // Delete the cookie
+                    cookie.setPath("/");
+                    response.addCookie(cookie);
+                }
+            }
+        }
+
         // Redirect to login page
         response.sendRedirect(request.getContextPath() + "/login");
     }
