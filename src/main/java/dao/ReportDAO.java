@@ -155,6 +155,8 @@ public class ReportDAO {
                 report.put("userFullName", rs.getString("userFullName"));
                 report.put("statusId", rs.getInt("status_id"));
                 report.put("priorityId", rs.getInt("priority_id"));
+                report.put("createdAt", rs.getTimestamp("created_at"));
+                report.put("updatedAt", rs.getTimestamp("updated_at"));
                 report.put("images", getReportImages(rs.getInt("report_id")));
                 reports.add(report);
             }

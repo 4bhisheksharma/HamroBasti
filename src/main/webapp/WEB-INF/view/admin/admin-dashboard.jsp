@@ -59,7 +59,9 @@
                     <div class="report-card">
                         <div class="report-info">
                             <h3>${report.title}</h3>
-                            <span class="report-meta">Reported by: ${report.userFullName}</span>
+                            <span class="report-meta">Reported by: ${report.userFullName}</span> <br>
+                            <span class="report-meta">Last Updated: <fmt:formatDate value="${report.createdAt}" pattern="yyyy-MM-dd" /></span> <br>
+                            <span class="report-meta">Created: <fmt:formatDate value="${report.updatedAt}" pattern="yyyy-MM-dd" /></span>
                             <p>${report.description}</p>
 
                             <div class="status-priority">
