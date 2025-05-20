@@ -55,13 +55,13 @@
                                      id="avatarPreview">
                             </c:otherwise>
                         </c:choose>
-                        <input type="file" name="profileImage" id="profileImage" accept="image/*" hidden>
                         <label for="profileImage" class="btn-save mt-3">
                             <i class="fas fa-camera"></i> Change Photo
                         </label>
                     </div>
 
                     <form action="${pageContext.request.contextPath}/admin/profile" method="post" enctype="multipart/form-data">
+                        <input type="file" name="profileImage" id="profileImage" accept="image/*" hidden>
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text"
