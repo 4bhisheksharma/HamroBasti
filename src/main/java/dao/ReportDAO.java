@@ -202,6 +202,36 @@ public class ReportDAO {
         return counts;
     }
 
+    public static int getSubmittedReportsCount() throws SQLException {
+        return getReportCountByStatus("Submitted");
+    }
+
+    public static int getInProgressReportsCount() throws SQLException {
+        return getReportCountByStatus("In Progress");
+    }
+
+    public static int getCompletedReportsCount() throws SQLException {
+        return getReportCountByStatus("Completed");
+    }
+
+    private static int getReportCountByStatus(String statusLabel) throws SQLException {
+        String sql = "SELECT COUNT(*) as count "
+                + "FROM reports r "
+                + "JOIN report_status s ON r.status_id = s.status_id "
+                + "WHERE s.label = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, statusLabel);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("count");
+            }
+        }
+        return 0;
+    }
+
     public static void updateReportStatus(int reportId, int statusId) throws SQLException {
         String sql = "UPDATE reports SET status_id = ? WHERE report_id = ?";
         try (Connection conn = DBUtil.getConnection();
