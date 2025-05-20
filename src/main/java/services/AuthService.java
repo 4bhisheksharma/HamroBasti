@@ -23,7 +23,9 @@ public class AuthService {
 
         // If user exists and password matches the stored hash
         if (user != null && PasswordHashUtil.verifyPassword(password, user.getPassword())) {
-            return user;
+            // Fetch complete user data including profile image, bio, and creation date
+            User completeUser = UserDAO.getUserById(user.getId());
+            return completeUser != null ? completeUser : user;
         }
         return null;
 

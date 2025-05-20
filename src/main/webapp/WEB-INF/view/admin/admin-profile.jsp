@@ -40,28 +40,27 @@
                 </div>
 
                 <div class="profile-content">
-                    <div class="avatar-section">
-                        <c:choose>
-                            <c:when test="${not empty user.userImage}">
-                                <img src="data:image/jpeg;base64,${user.userImageAsBase64}"
-                                     class="avatar-preview"
-                                     alt="Profile Avatar"
-                                     id="avatarPreview">
-                            </c:when>
-                            <c:otherwise>
-                                <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"
-                                     class="avatar-preview"
-                                     alt="Default Avatar"
-                                     id="avatarPreview">
-                            </c:otherwise>
-                        </c:choose>
-                        <label for="profileImage" class="btn-save mt-3">
-                            <i class="fas fa-camera"></i> Change Photo
-                        </label>
-                    </div>
-
                     <form action="${pageContext.request.contextPath}/admin/profile" method="post" enctype="multipart/form-data">
-                        <input type="file" name="profileImage" id="profileImage" accept="image/*" hidden>
+                        <div class="avatar-section">
+                            <c:choose>
+                                <c:when test="${not empty user.userImage}">
+                                    <img src="data:image/jpeg;base64,${user.userImageAsBase64}"
+                                         class="avatar-preview"
+                                         alt="Profile Avatar"
+                                         id="avatarPreview">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/assets/images/placeholder_profile.png"
+                                         class="avatar-preview"
+                                         alt="Default Avatar"
+                                         id="avatarPreview">
+                                </c:otherwise>
+                            </c:choose>
+                            <label for="profileImage" class="btn-save mt-3">
+                                <i class="fas fa-camera"></i> Change Photo
+                            </label>
+                        </div>
+                        <input type="file" name="profileImage" id="profileImage" accept="image/*" style="display:none;">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text"
