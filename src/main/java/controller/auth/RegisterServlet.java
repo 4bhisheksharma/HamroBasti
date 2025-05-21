@@ -30,17 +30,20 @@ public class RegisterServlet extends HttpServlet {
             int userId = AuthService.createUser(fullname, email, password);
 
             if (userId > 0) {
-                // Registration successful, redirect to login page
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp?signerror=false");
+                // Registration successful, redirect to login page with success message
+                request.setAttribute("success", "Registration successful! Please login with your new account.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/login.jsp");
                 dispatcher.forward(request, response);
             } else {
                 // Registration failed (likely email already exists)
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp?signerror=true");
+                request.setAttribute("error", "Email already exists. Please use a different email address.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp");
                 dispatcher.forward(request, response);
             }
         } catch (SQLException e) {
             // Handle database error
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp?signerror=true");
+            request.setAttribute("error", "An error occurred during registration. Please try again.");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/auth/signup.jsp");
             dispatcher.forward(request, response);
         }
     }

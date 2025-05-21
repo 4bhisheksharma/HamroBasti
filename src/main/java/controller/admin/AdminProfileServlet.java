@@ -31,6 +31,18 @@ public class AdminProfileServlet extends HttpServlet {
             return;
         }
 
+        try {
+            // Fetch complete user data from database
+            User completeUser = UserDAO.getUserById(user.getId());
+            if (completeUser != null) {
+                // Update session with complete user data
+                session.setAttribute("user", completeUser);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Continue even if there's an error, using existing user data
+        }
+
         // Forward to profile page
         request.getRequestDispatcher("/WEB-INF/view/admin/admin-profile.jsp").forward(request, response);
     }

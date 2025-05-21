@@ -34,6 +34,11 @@ public class AdminReportsServlet extends HttpServlet {
             // Get status counts for stats
             Map<String, Integer> statusCounts = ReportDAO.getStatusCounts();
 
+            // Get specific status counts
+            int submittedCount = ReportDAO.getSubmittedReportsCount();
+            int inProgressCount = ReportDAO.getInProgressReportsCount();
+            int completedCount = ReportDAO.getCompletedReportsCount();
+
             // Get all possible statuses and priorities
             List<ReportStatus> allStatuses = ReportDAO.getAllStatuses();
             List<Priority> allPriorities = ReportDAO.getAllPriorities();
@@ -41,6 +46,9 @@ public class AdminReportsServlet extends HttpServlet {
             request.setAttribute("allReports", allReports);
             request.setAttribute("statusCounts", statusCounts);
             request.setAttribute("totalReports", allReports.size());
+            request.setAttribute("submittedCount", submittedCount);
+            request.setAttribute("inProgressCount", inProgressCount);
+            request.setAttribute("completedCount", completedCount);
             request.setAttribute("allStatuses", allStatuses);
             request.setAttribute("allPriorities", allPriorities);
 

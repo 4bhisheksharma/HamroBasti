@@ -263,6 +263,31 @@ textarea {
     color: var(--primary);
 }
 
+/* Status-specific stat cards */
+.submitted-card {
+    border-left: 4px solid var(--info);
+}
+
+.submitted-card .stat-value {
+    color: var(--info);
+}
+
+.in-progress-card {
+    border-left: 4px solid var(--warning);
+}
+
+.in-progress-card .stat-value {
+    color: var(--warning);
+}
+
+.completed-card {
+    border-left: 4px solid var(--success);
+}
+
+.completed-card .stat-value {
+    color: var(--success);
+}
+
 /* Reports Section */
 .reports-section {
     background-color: var(--surface);
