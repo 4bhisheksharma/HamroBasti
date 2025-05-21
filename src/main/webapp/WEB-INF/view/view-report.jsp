@@ -27,7 +27,7 @@
         </span>
         <span class="status">Status: ${report.status},</span>
         <span class="date">
-            Reported on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
+            Updated on: <fmt:formatDate value="${report.createdAt}" pattern="dd MMM yyyy"/>
         </span>
     </div>
 

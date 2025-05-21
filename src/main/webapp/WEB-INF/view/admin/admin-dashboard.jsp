@@ -43,11 +43,25 @@
                     <h3>Total Reports</h3>
                     <div class="stat-value">${totalReports}</div>
                 </div>
+                <div class="stat-card submitted-card">
+                    <h3>Submitted</h3>
+                    <div class="stat-value">${submittedCount}</div>
+                </div>
+                <div class="stat-card in-progress-card">
+                    <h3>In Progress</h3>
+                    <div class="stat-value">${inProgressCount}</div>
+                </div>
+                <div class="stat-card completed-card">
+                    <h3>Completed</h3>
+                    <div class="stat-value">${completedCount}</div>
+                </div>
                 <c:forEach items="${statusCounts}" var="status">
-                    <div class="stat-card">
-                        <h3>${status.key}</h3>
-                        <div class="stat-value">${status.value}</div>
-                    </div>
+                    <c:if test="${status.key != 'Submitted' && status.key != 'In Progress' && status.key != 'Completed'}">
+                        <div class="stat-card">
+                            <h3>${status.key}</h3>
+                            <div class="stat-value">${status.value}</div>
+                        </div>
+                    </c:if>
                 </c:forEach>
             </div>
 
@@ -59,7 +73,9 @@
                     <div class="report-card">
                         <div class="report-info">
                             <h3>${report.title}</h3>
-                            <span class="report-meta">Reported by: ${report.userFullName}</span>
+                            <span class="report-meta">Reported by: ${report.userFullName}</span> <br>
+                            <span class="report-meta">Last Updated: <fmt:formatDate value="${report.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <br>
+                            <span class="report-meta">Created: <fmt:formatDate value="${report.updatedAt}" pattern="yyyy-MM-dd" /></span>
                             <p>${report.description}</p>
 
                             <div class="status-priority">

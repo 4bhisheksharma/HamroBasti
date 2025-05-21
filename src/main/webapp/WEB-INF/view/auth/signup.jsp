@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,12 @@
                 <h1>Create <span class="highlight">Account</span></h1>
                 <p>Fill in your details to get started</p>
             </div>
+
+            <c:if test="${not empty error}">
+                <div class="auth-error-alert">
+                    ${error}
+                </div>
+            </c:if>
 
             <form action="${pageContext.request.contextPath}/register" method="post">
                 <div class="form-group">
@@ -66,13 +73,6 @@
                     <p>Already have an account? <a href="${pageContext.request.contextPath}/login" class="highlight">Sign in</a></p>
                 </div>
             </form>
-            <div class="alert alert-success" id="registration-success" style="display: none;">
-                Registration successful! Redirecting to login...
-            </div>
-
-            <div class="alert alert-danger" id="email-exists-error" style="display: none;">
-                Email already exists. Please use a different email.
-            </div>
         </div>
     </div>
 </main>

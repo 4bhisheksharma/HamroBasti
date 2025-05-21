@@ -95,14 +95,23 @@
                                 <td>${user.bio}</td>
                                 <td>
                                     <div class="user-actions">
-                                        <form action="${pageContext.request.contextPath}/admin/delete-user"
-                                              method="post"
-                                              onsubmit="return confirm('Are you sure you want to delete this user?')">
-                                            <input type="hidden" name="userId" value="${user.id}">
-                                            <button type="submit" class="action-btn delete-btn">
-                                                <i class="fas fa-trash-alt"></i> Delete
-                                            </button>
-                                        </form>
+                                        <c:choose>
+                                            <c:when test="${user.id == sessionScope.user.id}">
+                                                <button type="button" class="action-btn delete-btn" disabled title="You cannot delete your own account">
+                                                    <i class="fas fa-trash-alt"></i> Delete
+                                                </button>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <form action="${pageContext.request.contextPath}/admin/delete-user"
+                                                      method="post"
+                                                      onsubmit="return confirm('Are you sure you want to delete this user?')">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button type="submit" class="action-btn delete-btn">
+                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </td>
                             </tr>

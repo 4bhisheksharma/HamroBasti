@@ -52,7 +52,7 @@ public class UserDAO {
     }
 
     public static User getUserById(int user_id) throws SQLException {
-        String sql = "SELECT user_id, full_name, email, created_at, bio, user_profile FROM users WHERE user_id = ?";
+        String sql = "SELECT user_id, role_id, full_name, email, created_at, bio, user_profile FROM users WHERE user_id = ?";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, user_id);
@@ -60,6 +60,7 @@ public class UserDAO {
             if (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("user_id"));
+                user.setRoleId(rs.getInt("role_id"));
                 user.setFullName(rs.getString("full_name"));
                 user.setEmail(rs.getString("email"));
                 user.setCreated_at(rs.getTimestamp("created_at"));
