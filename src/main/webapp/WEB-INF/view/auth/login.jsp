@@ -33,6 +33,11 @@
                         ${error}
                 </div>
             </c:if>
+            <c:if test="${not empty success}">
+                <div class="auth-success-alert">
+                        ${success}
+                </div>
+            </c:if>
 
             <!-- Cookie Consent Banner (hidden by default, shown when Remember me is clicked) -->
             <c:if test="${cookieConsent != true}">
