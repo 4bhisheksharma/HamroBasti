@@ -35,7 +35,7 @@
         <div class="mission-vision">
             <div class="info-card">
                 <div class="card-icon">
-                    <img src="${pageContext.request.contextPath}/assets/images/mission-icon.png" alt="Mission icon">
+                    <img src="${pageContext.request.contextPath}/assets/icons/mission-icon.png" alt="Mission icon">
                 </div>
                 <h2>Our Mission</h2>
                 <p>To create a transparent, efficient, and responsive platform that connects residents with local authorities to address community issues.</p>
@@ -43,7 +43,7 @@
 
             <div class="info-card">
                 <div class="card-icon">
-                    <img src="${pageContext.request.contextPath}/assets/images/vision-icon.png" alt="Vision icon">
+                    <img src="${pageContext.request.contextPath}/assets/icons/vision-icon.png" alt="Vision icon">
                 </div>
                 <h2>Our Vision</h2>
                 <p>A Nepal where every community has the tools and resources to quickly identify, report, and resolve local issues through collaborative efforts.</p>
@@ -59,7 +59,7 @@
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/community-icon.png" alt="Community icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/community-icon.png" alt="Community icon">
                     </div>
                     <h3>Community First</h3>
                     <p>We prioritize the needs and well-being of communities in everything we do.</p>
@@ -67,7 +67,7 @@
 
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/accountability-icon.png" alt="Accountability icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/accountability-icon.png" alt="Accountability icon">
                     </div>
                     <h3>Accountability</h3>
                     <p>We promote transparency and responsibility at all levels of governance.</p>
@@ -75,7 +75,7 @@
 
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/inclusivity-icon.png" alt="Inclusivity icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/inclusivity-icon.png" alt="Inclusivity icon">
                     </div>
                     <h3>Inclusivity</h3>
                     <p>We ensure our platform is accessible and beneficial to all community members.</p>
