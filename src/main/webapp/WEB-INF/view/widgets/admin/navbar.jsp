@@ -33,7 +33,7 @@
                 <i class="fas fa-user"></i> Profile
             </div>
         </a>
-        <a href="${pageContext.request.contextPath}/logout">
+        <a href="javascript:void(0);" onclick="confirmLogout('${pageContext.request.contextPath}/logout')">
             <div class="menu-item">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </div>
@@ -43,6 +43,13 @@
 
 <!-- Mobile sidebar toggle button - will be shown in the header -->
 <script>
+    // Function to confirm logout
+    function confirmLogout(logoutUrl) {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = logoutUrl;
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // Add sidebar toggle functionality
         const sidebarToggle = document.getElementById('sidebar-toggle');
