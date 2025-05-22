@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 5/1/2025
-  Time: 12:55 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -46,11 +39,17 @@
 
     <div class="report-actions">
         <a href="editReport?id=${report.id}" class="btn-edit">Edit Report</a>
-        <form action="deleteReport" method="post" class="delete-form">
+        <form action="deleteReport" method="post" class="delete-form" onsubmit="return confirmDelete()">
             <input type="hidden" name="id" value="${report.id}">
             <button type="submit" class="btn-outline-del">Delete Report</button>
         </form>
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this report? This action cannot be undone.");
+        }
+    </script>
 
     <div class="report-actions">
         <a href="report" class="btn-edit">Back to Report</a>

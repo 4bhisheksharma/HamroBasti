@@ -35,7 +35,7 @@
         <div class="mission-vision">
             <div class="info-card">
                 <div class="card-icon">
-                    <img src="${pageContext.request.contextPath}/assets/images/mission-icon.png" alt="Mission icon">
+                    <img src="${pageContext.request.contextPath}/assets/icons/mission-icon.png" alt="Mission icon">
                 </div>
                 <h2>Our Mission</h2>
                 <p>To create a transparent, efficient, and responsive platform that connects residents with local authorities to address community issues.</p>
@@ -43,7 +43,7 @@
 
             <div class="info-card">
                 <div class="card-icon">
-                    <img src="${pageContext.request.contextPath}/assets/images/vision-icon.png" alt="Vision icon">
+                    <img src="${pageContext.request.contextPath}/assets/icons/vision-icon.png" alt="Vision icon">
                 </div>
                 <h2>Our Vision</h2>
                 <p>A Nepal where every community has the tools and resources to quickly identify, report, and resolve local issues through collaborative efforts.</p>
@@ -59,7 +59,7 @@
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/community-icon.png" alt="Community icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/community-icon.png" alt="Community icon">
                     </div>
                     <h3>Community First</h3>
                     <p>We prioritize the needs and well-being of communities in everything we do.</p>
@@ -67,7 +67,7 @@
 
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/accountability-icon.png" alt="Accountability icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/accountability-icon.png" alt="Accountability icon">
                     </div>
                     <h3>Accountability</h3>
                     <p>We promote transparency and responsibility at all levels of governance.</p>
@@ -75,7 +75,7 @@
 
                 <div class="value-card">
                     <div class="value-icon">
-                        <img src="${pageContext.request.contextPath}/assets/images/inclusivity-icon.png" alt="Inclusivity icon">
+                        <img src="${pageContext.request.contextPath}/assets/icons/inclusivity-icon.png" alt="Inclusivity icon">
                     </div>
                     <h3>Inclusivity</h3>
                     <p>We ensure our platform is accessible and beneficial to all community members.</p>
@@ -102,7 +102,7 @@
             <div style="display: flex; gap: 30px; align-items: center; margin-bottom: 40px;">
                 <div style="flex: 1;">
                     <h3 style="margin-bottom: 15px; font-size: 1.3rem;">How We Started</h3>
-                    <p style="line-height: 1.6; color: #555;">Hamro-Basti was founded in 2025 by a group of IIC undergraduade student citizens who wanted to create a more efficient way for communities to report and resolve local issues. What started as a small project in one neighborhood of Kathmandu has now grown to serve multiple communities across Nepal.</p>
+                    <p style="line-height: 1.6; color: #555;">Hamro-Basti was founded in 2025 by a group of IIC undergraduate students who wanted to create a more efficient way for communities to report and resolve local issues. What started as a small project in one neighborhood of Itahari has now grown to serve multiple communities across Nepal.</p>
                 </div>
                 <div style="flex: 1; text-align: center;">
                     <img src="${pageContext.request.contextPath}/assets/images/story-image.png" alt="Hamro-Basti founding team" style="max-width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
