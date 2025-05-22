@@ -43,7 +43,7 @@
         </c:choose>
     </a>
 
-    <a href="${pageContext.request.contextPath}/logout" class="signup-btn">Log Out</a>
+    <a href="javascript:void(0);" onclick="confirmLogout('${pageContext.request.contextPath}/logout')" class="signup-btn">Log Out</a>
         </div>
         <div class="mobile-menu-toggle" id="mobile-menu-toggle">
             <span></span>
@@ -62,5 +62,13 @@
         </ul>
     </div>
 </nav>
+<script>
+    // Function to confirm logout
+    function confirmLogout(logoutUrl) {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = logoutUrl;
+        }
+    }
+</script>
 </body>
 </html>
