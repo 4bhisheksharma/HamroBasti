@@ -102,7 +102,7 @@
             <div style="display: flex; gap: 30px; align-items: center; margin-bottom: 40px;">
                 <div style="flex: 1;">
                     <h3 style="margin-bottom: 15px; font-size: 1.3rem;">How We Started</h3>
-                    <p style="line-height: 1.6; color: #555;">Hamro-Basti was founded in 2025 by a group of IIC undergraduade student citizens who wanted to create a more efficient way for communities to report and resolve local issues. What started as a small project in one neighborhood of Kathmandu has now grown to serve multiple communities across Nepal.</p>
+                    <p style="line-height: 1.6; color: #555;">Hamro-Basti was founded in 2025 by a group of IIC undergraduate students who wanted to create a more efficient way for communities to report and resolve local issues. What started as a small project in one neighborhood of Itahari has now grown to serve multiple communities across Nepal.</p>
                 </div>
                 <div style="flex: 1; text-align: center;">
                     <img src="${pageContext.request.contextPath}/assets/images/story-image.png" alt="Hamro-Basti founding team" style="max-width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
